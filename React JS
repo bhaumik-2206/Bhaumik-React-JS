@@ -1,0 +1,87 @@
+---------------04/09/2023-----------------
+=>React is a JS libaray for building fast and interactive user interface for the web as well as mobile applications
+-It is an open-source , reusable component-based front-end library
+-React follows a one-way data flow, meaning data flows from parent components to child components.
+-open source libaray for building user interface
+
+=>JSX - JS + HTML
+-React components are typically written using JSX, which makes the code more readable and maintainable.
+
+=>Component:-
+-component are the building blocks of any react application and a single app usually consists of multiple components.
+-Components are like functions that return HTML elements.
+-Components are independent and reusable bits of code.
+-reusable modules known as components.
+-component also make it possible to write reusable code.
+-component can also contain other components
+-component comes in two type function components and class components(stateless function components and steteful class components)
+- Each component will go into its own JavaScript file.
+-Both components are optionaly recieve props(properties) and return a HTML called JSX
+--function component is easy to write , absense of 'this' keyword in functional components , solution without using state , if we have number of components each their own private state(called stateless , dumb and presentational components).
+--Class components is more feacher , they can maintain their own private dataand state(called stateful , smart and container components)
+
+=>State is a component is an object that holds some data
+=>Props is short of properties that allows us to pass argument or data to component.
+-Props are used to pass data from one component to another.
+-props are immutable and state are mutable(can be modifying)
+=>Props and State:-
+Props (short for properties) and state are two fundamental concepts for managing data in React components. Props are used for passing data from parent to child components, while state is used for managing data that can change over time within a component. State changes trigger component re-rendering.
+
+=>virtual DOM
+-Make copy of actual DOM is called as virtual DOM
+-The virtual DOM is a lightweight copy or representation of the actual DOM.
+-React doesn't immediately update the actual DOM. Instead, it first updates the Virtual DOM and then compares it with the previous state to determine the minimal number of changes needed to update the real DOM. 
+
+=>npm-download and use
+=>npx-Use without download the package
+
+=>Library and Framework
+-A framework is a set of pre-written code that provides a structure for developing software applications.
+-A library, on the other hand, is a collection of pre-written code that can be used to perform specific tasks.
+
+
+=>Single Page Application:-
+-In a single-page application (SPA) built with React.js, the initial HTML, CSS, and JavaScript code are loaded when the application is first accessed
+-After that, the application typically runs entirely in the browser without the need for a full page reload.
+-React js provides a powerful way to manage and update the content of a web page without having to reload the entire page.
+(Component-Based Architecture,Virtual DOM,State Management,Component Reusability,React Ecosystem,Community and Resources,Server-Side Rendering (SSR) and React Native)
+
+=>Initial Loading time:-
+-SPA have slight long initial Loading time. Because the application has load all the code (HTML,CSS,JS in one time(Framework))
+
+---------------05/09/2023-----------------
+#JSX:-
+-JSX is stands for JavaScript XML
+-JSX allows you to write HTML-like code within your JavaScript code
+-making it easier to describe the layout and components of your application's user interface
+-JSX looks similar to HTML but its actully javascript.
+-It will allows you to write HTML code and also a custom react component
+-This is easier to read and write.
+<!-- 
+// JSX
+<div>Hello, World!</div>        // This is very easier to understand
+// Transpiled to JavaScript
+React.createElement('div', null, 'Hello, World!')  // This is complex to understand
+-->
+-It is faster than regular JavaScript because it performs optimization while translating the code to JavaScript.
+-We cannot use class for like attribute in JSX beacuse their are reserve keyword in JS.
+-return only one element.(If you want to use multiple element then you can use JSX fragment)
+-Babel compiles JSX to React.creatElement() calls
+
+#props:-
+-props are sorthand of properties.
+-It is an object which is stored the value of attribute of a tag and work similar to HTML attributes.
+-This is similar to function argument.
+-props are immutable we can not change the props inside the component
+-We can pass the value of parent Component to the child component through props
+-Every parent component can pass some information to its child components by giving them props
+
+#hooks:-
+-Features of class based components in function based components.
+-It is allows you to use state and other React features without writing a class.
+-In React.js, "hooks" are functions that allow you to "hook into" React state and lifecycle features from function components.
+-common(useState,useEffect,useContext,useRef)
+
+-To change the port costomely in create-react-app with the help of 
+"start": "set PORT=3456 && react-scripts start",
+add this in package.json file in scripts in start.
