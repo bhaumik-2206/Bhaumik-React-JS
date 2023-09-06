@@ -77,29 +77,24 @@
 // }
 // export default ParentComponent;
 
-import React from 'react';
-// import dayjs from 'dayjs';
 
-function MyComponent() {
-    // // Get the current date and format it
-    // const formattedDate = dayjs().format('YYYY-MM-DD HH:mm:ss');
-
-    // // Parse a date string
-    // const parsedDate = dayjs('2023-09-06');
-
-    // // Add/subtract days
-    // const tomorrow = dayjs().add(1, 'day');
-    // const yesterday = dayjs().subtract(1, 'day');
-
-    // return (
-    //     <div>
-    //         <p>Formatted Date: {formattedDate}</p>
-    //         <p>Parsed Date: {parsedDate.format('DD MMM YYYY')}</p>
-    //         <p>Tomorrow: {tomorrow.format('YYYY-MM-DD')}</p>
-    //         <p>Yesterday: {yesterday.format('YYYY-MM-DD')}</p>
-    //     </div>
-    // );
-    return <h1>HELLO</h1>
+import PropTypes from 'prop-types'
+export default function AddPropTypes(props) {
+    return (
+        <div>
+            <span>{props.title}</span>&emsp;
+            <span>{props.array.join("-")}</span>&emsp;
+            <span>{props.name.name}</span>&emsp;
+        </div>
+    )
 }
-
-export default MyComponent;
+AddPropTypes.propTypes = {
+    title: PropTypes.string.isRequired,        //  we can add .isRequired to required the props
+    array: PropTypes.array.isRequired,
+    name: PropTypes.object.isRequired,
+}
+AddPropTypes.defaultProps = {
+    title: "Hello",
+    array: [6, 7, 8, 9, 10],
+    name: { name: "Vivek" },
+}

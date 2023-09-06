@@ -85,6 +85,69 @@ React.createElement('div', null, 'Hello, World!')  // This is complex to underst
 
 -To get the data from child component to parent component , parent component pass a callback function to the child component as a props
 
+#Event Handler:-
+-Event handler are our own function will triggered in responce like click , hover etc...
+
+---Focus Events:- onFocus , onBlur
+---Touch Event:- onTouchMove , onTouchCancel , onTouchMove
+---Animation Events:-onAnimationStart , onAnimationEnd , onAnimationIteration
+---Drag and Drop Events:-onDragStart: , onDrag , onDragEnter , onDragLeave , onDragOver , onDrop
+---Clipboard Events:- onCopy , onCut , onPaste
+---Transition Events:- onTransitionEnd
+---Pointer Events:- onPointerDown , onPointerUp , onPointerMove , onPointerEnter , onPointerLeave
+---Wheel Events:- onWheel
+---Media Events:- onPlay , onPause , onEnded , onVolumeChange
+---Form Input Events:-onSelect , onReset , onInvalid , onSearch
+
+Mouse Events:
+onClick , onContextMenu , onDoubleClick , onDrag , onDragEnd , onDragEnter , onDragExit , onDragLeave , onDragOver , onDragStart , onDrop , onMouseDown , onMouseEnter , onMouseLeave , onMouseMove , onMouseOut , onMouseOver , onMouseUp
+
+Keyboard Events: 
+onKeyDown , onKeyPress , onKeyUp
+
+Form Events:
+onChange , onInput , onSubmit , onReset , onFocus , onBlur
+
+Focus Events:
+onFocus , onBlur
+
+Clipboard Events:
+onCopy , onCut , onPaste
+
+Animation/Transition Events:
+onAnimationStart , onAnimationEnd , onAnimationIteration , onTransitionEnd
+
+Media Events:
+onAbort , onCanPlay , onCanPlayThrough , onDurationChange , onEmptied , onEncrypted , onEnded , onLoadedData , onLoadedMetadata , onLoadStart , onPause , onPlay , onPlaying , onProgress , onRateChange , onSeeked , onSeeking , onStalled , onSuspend , onTimeUpdate , onVolumeChange , onWaiting
+
+Touch Events:
+onTouchCancel , onTouchEnd , onTouchMove , onTouchStart
+
+Pointer Events:
+onPointerDown , onPointerMove , onPointerUp , onPointerCancel , onGotPointerCapture , onLostPointerCapture , onPointerEnter , onPointerLeave , onPointerOver , onPointerOut
+
+Wheel Events:
+onWheel
+
+Other Events:
+onScroll , onError , onToggle , onKeyDown , onKeyUp , onKeyPress
+
+
+
+
+
+
+
+
+
+
+
+
 -To change the port customely in create-react-app with the help of 
 "start": "set PORT=3456 && react-scripts start",
 add this in package.json file in scripts in start.
+
+
+
+rfc=function component
+rfce=function component

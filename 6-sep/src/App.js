@@ -5,22 +5,29 @@ import MyNavbar from './Component/navbar'   // Navbar component
 import MyFooter from './Component/myFooter' // Footer component
 // import Styling from './Component/styling'
 // import Props from './Component/props'
-import Jsx from './Component/jsx'
+// import Jsx from './Component/jsx'
 // import dayjs from "day.js";
 
 // import Hooks from './Component/hooks'
+// import Event from './Component/event'
+import MyForm from './Component/Form-Submit';
+import ToDoList from './Component/To-Do-List';
 function App() {
   // console.log(b)
   return (
     <div>
       <MyNavbar />
       <h1>HELLO WORLD</h1>
+      <ToDoList/>
+      <MyForm />
       {/* <Styling /> */}
-      <Jsx />
+      {/* <Jsx /> */}
+      {/* <Props title="React Js" array={[1, 2, 3, 4, 5]} name={{ name: "Raj" }} /> */}
       {/* <Props /> */}
       {/* <Hello /> */}
       {/* <Welcome /> */}
       {/* <Hooks /> */}
+      {/* <Event /> */}
       <MyFooter />
     </div>
   );
