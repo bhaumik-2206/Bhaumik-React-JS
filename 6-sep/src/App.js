@@ -4,8 +4,8 @@ import './App.css';
 import MyNavbar from './Component/navbar'   // Navbar component
 import MyFooter from './Component/myFooter' // Footer component
 // import Styling from './Component/styling'
-import Props from './Component/props'
-// import Jsx from './Component/jsx'
+// import Props from './Component/props'
+import Jsx from './Component/jsx'
 // import dayjs from "day.js";
 
 // import Hooks from './Component/hooks'
@@ -16,8 +16,8 @@ function App() {
       <MyNavbar />
       <h1>HELLO WORLD</h1>
       {/* <Styling /> */}
-      {/* <Jsx /> */}
-      <Props />
+      <Jsx />
+      {/* <Props /> */}
       {/* <Hello /> */}
       {/* <Welcome /> */}
       {/* <Hooks /> */}
