@@ -133,8 +133,12 @@ Other Events:
 onScroll , onError , onToggle , onKeyDown , onKeyUp , onKeyPress
 
 
-
-
+#useState:-
+-useState is React Hook that allows you to add state to a functional component.
+-It returns an array with two values: the current state and a function to update it. The Hook takes an initial state value as an argument and returns an updated state value whenever the setter function is called.
+-Parameter:-initialState of the variable
+-Return:-The current state and set function thet allow to update the value
+-This is because calling the set function does not update the age state variable in the already running code.
 
 
 
@@ -146,8 +150,6 @@ onScroll , onError , onToggle , onKeyDown , onKeyUp , onKeyPress
 -To change the port customely in create-react-app with the help of 
 "start": "set PORT=3456 && react-scripts start",
 add this in package.json file in scripts in start.
-
-
 
 rfc=function component
 rfce=function component

@@ -10,16 +10,21 @@ import MyFooter from './Component/myFooter' // Footer component
 
 // import Hooks from './Component/hooks'
 // import Event from './Component/event'
-import MyForm from './Component/Form-Submit';
-import ToDoList from './Component/To-Do-List';
+// import MyForm from './Component/Form-Submit';
+// import ToDoList from './Component/To-Do-List';
+
+import Example from './10-Sep Component/Example';
+import UseState from './10-Sep Component/UseState';
 function App() {
   // console.log(b)
   return (
     <div>
       <MyNavbar />
-      <h1>HELLO WORLD</h1>
-      <ToDoList/>
-      <MyForm />
+      <h1>Hello React JS</h1>
+      <Example />
+      <UseState />
+      {/* <ToDoList/> */}
+      {/* <MyForm /> */}
       {/* <Styling /> */}
       {/* <Jsx /> */}
       {/* <Props title="React Js" array={[1, 2, 3, 4, 5]} name={{ name: "Raj" }} /> */}

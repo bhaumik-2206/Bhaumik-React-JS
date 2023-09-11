@@ -5,7 +5,7 @@ export default function ToDoList() {
     const [newTask, setNewTask] = useState("");
     const handleSubmitTask = (e) => {
         e.preventDefault();
-        if (newTask.trim() != "") {
+        if (newTask.trim() !== "") {
             if (editingContinue === -1) {
                 setTask([...allTask, newTask]);
             } else {

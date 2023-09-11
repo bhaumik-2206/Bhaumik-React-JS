@@ -109,3 +109,86 @@ footer {
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+
+.addItemForm {
+  width: 40%;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 20px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.addItemForm input {
+  width: -webkit-fill-available;
+  padding: 10px;
+  font-size: 18px;
+  background-color: transparent;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  border-radius: 40px;
+}
+
+.addItemForm h2 {
+  margin-bottom: 10px;
+  border-bottom: 5px dashed red;
+  display: inline-block;
+}
+
+.addItemForm button {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 20px;
+}
+
+.myData {
+  display: flex;
+  width: 80%;
+  margin-inline: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.myData .price {
+  width: 25%;
+  text-align: center;
+}
+
+.myData .inc-dec {
+  text-align: center;
+  display: inline-block;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+.myData .inc-dec span {
+  font-size: 20px;
+  margin-inline: 10px;
+}
+
+.myData .inc-dec button {
+  padding: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+.myData .inc-dec button:first-child {
+  background-color: red;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.myData .inc-dec button:last-child {
+  background-color: green;
+  border-radius: 0px 10px 10px 0px
+}
