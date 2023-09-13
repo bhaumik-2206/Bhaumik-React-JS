@@ -1,4 +1,3 @@
-import Module from './10-Sep Component/Module';
 // import MakeTable from './10-Sep Component/Table';
 // import mainArray from "./10-Sep Component/MainArray"
 import './App.css';
@@ -42,19 +41,94 @@ import './App.css';
 // }
 // export default App;
 
+// import AddMedicineForm from './10-Sep Component/Module';
+// import allData from './10-Sep Component/MainArray';
+// import React, { useState } from 'react';
+// import Table from "./10-Sep Component/Table"
+
+// export default function App() {
+//   const [mainArray, setMainArray] = useState(allData);
+//   const [show, setShow] = useState(false);
+//   const [editInfo, setEditInfo] = useState({})
+
+
+//   const receiveDataFromParent = (data) => {
+//     setMainArray(data);
+//   };
+//   const handleShow = () => {
+//     setShow(true)
+//     setEditInfo({});
+//   }
+
+//   // const setEditMedicine = (data) => {
+//   //   setIsEdit(data);
+//   //   console.log(isEdit);
+//   // };
+//   return (
+//     <div>
+//       {/* <Module data={mainArray} sendDataToGrandParent={receiveDataFromParent} sendEditedData={isEdit} />
+//       <Table tableData={mainArray} sendDataToParent={receiveDataFromParent} isClickEdiButton={setEditMedicine} /> */}
+//       {/* add button */}
+//       <Button variant="primary" onClick={handleShow}>Add Medicine</Button>
+
+//       <AddMedicineForm show={show} editInfo={editInfo} setShow={setShow} data={mainArray} sendDataToGrandParent={receiveDataFromParent} />
+//       <Table tableData={mainArray} sendDataToParent={receiveDataFromParent} setEditInfo={setEditInfo} setShow={setShow} />
+//     </div >
+//   );
+// }
+
+//----//
+// import React, { useState } from 'react';
 // import Questions from './10-Sep Component/Questions';
-import allData from './10-Sep Component/MainArray';
+// export default function App() {
+//   const [propValue, setPropValue] = useState('Initial Value');
+//   const handleChangeProp = () => {
+//     setPropValue('New Value');
+//   };
+//   return (
+//     <div>
+//       <button onClick={handleChangeProp}>Change Prop</button>
+//       <Questions propToChange={propValue} />
+//     </div>
+//   );
+// }
 
 
-export default function App() {
+// import Questions from './10-Sep Component/Questions';
+// import { useState } from 'react';
+// export default function App() {
+//   // const [name, setName] = useState("");
 
-  return (
-    <div>
-      <Module data={allData} />
-      {/* <Questions data={{ greet: "Hello" }} /> */}
-    </div>
-  )
-}
+//   return (
+//     <>
+//       {/* <Questions >
+//        <div style={{ color: "white" }}>
+//          <h1>HELLO WORLDDDDD</h1>
+//        </div>
+//      </Questions>
+//      <Questions data={{ greet: "H" }} name="Raj" age={20} array={[10, 20, 30]} /> */}
+//       {/* <Questions /> */}
+//       {/* <button onClick={Questions}>Call Questions Function</button> */}
+//       {/* {Questions()}
+//       <button onClick={handleClick}>CLICk</button> */}
+//       {/* <h1>{name}</h1>
+//       <Questions data={setName} /> */}
+
+//       {/* <Questions>
+//         <h3>This is New Div</h3>
+//       </Questions> */}
+
+//       {/* <Questions data='Hello from Parent' /> */}
+
+//       {/* <Questions data={{ greet: "H" }} name="Raj" age={20} array={[10, 20, 30]} /> */}
+
+//       <Questions />
+
+//     </>
+//   );
+// }
+
+
 
 
 
@@ -120,3 +194,64 @@ export default function App() {
 //   );
 // }
 // export default MainComponent;
+
+
+import Button from 'react-bootstrap/Button';
+import MedicineData from './Medicine/medicineData';
+import React, { useState } from 'react'
+import Table from './Medicine/Table';
+import AddMedicineModal from './Medicine/AddMedicineModal';
+
+export default function App() {
+  const [medicineData, setMedicineData] = useState(MedicineData);
+  const [show, setShow] = useState(false);
+  const [editInfo, setEditInfo] = useState(-1)
+  const handleShow = () => {
+    setShow(true);
+    setEditInfo(-1);
+  }
+  return (
+    <div>
+      <Button onClick={handleShow} variant="primary">Add Medicine</Button>
+      <AddMedicineModal show={show} setShow={setShow} medicineData={medicineData} setMedicineData={setMedicineData} editInfo={editInfo} />
+      <Table medicineData={medicineData} setMedicineData={setMedicineData} setShow={setShow} setEditInfo={setEditInfo} />
+    </div>
+  )
+}
+
+
+
+
+
+
+
+
+
+// import Button from 'react-bootstrap/Button';
+// import AddMedicineForm from './10-Sep Component/Module';
+// import allData from './10-Sep Component/MainArray';
+// import React, { useState } from 'react';
+// import Table from "./10-Sep Component/Table"
+
+// export default function App() {
+//   const [mainArray, setMainArray] = useState(allData);
+//   const [show, setShow] = useState(false);
+//   const [editInfo, setEditInfo] = useState({})
+
+
+//   const receiveDataFromParent = (data) => {
+//     setMainArray(data);
+//   };
+//   const handleShow = () => {
+//     setShow(true)
+//     setEditInfo({});
+//   }
+//   return (
+//     <div>
+//       <Button variant="primary" onClick={handleShow}>Add Medicine</Button>
+
+//       <AddMedicineForm show={show} editInfo={editInfo} setShow={setShow} data={mainArray} sendDataToGrandParent={receiveDataFromParent} />
+//       <Table tableData={mainArray} sendDataToParent={receiveDataFromParent} setEditInfo={setEditInfo} setShow={setShow} />
+//     </div >
+//   );
+// }

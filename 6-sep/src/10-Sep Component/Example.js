@@ -45,7 +45,7 @@ export default function Example() {
                 allData.length > 0 ?
                     allData.map((ele, index) => (
                         <div className='myData' key={ele.id}>
-                            <div className='price'>
+                            <div className='price'>a
                                 <h2>{ele.item}:{ele.price}</h2>
                             </div>
                             <div className='inc-dec'>

@@ -1,16 +1,17 @@
+import React from 'react'
 import Table from 'react-bootstrap/Table';
-export default function MakeTable({ tableData, sendDataToParent, setShow, setEditInfo }) {
+export default function MakeTable({ medicineData, setMedicineData, setShow, setEditInfo }) {
     const onDelete = (index) => {
-        const updatedArray = tableData.filter((ele, i) => i !== index);
-        sendDataToParent(updatedArray);
+        console.log("object")
+        const updatedArray = medicineData.filter((ele, i) => i !== index);
+        setMedicineData(updatedArray);
     }
     const onEdit = (index) => {
-        let value = tableData[index];
-        setEditInfo(value);
+        setEditInfo(index);
         setShow(true);
     };
     return (
-        tableData.length > 0 ?
+        medicineData.length > 0 ?
             (
                 <Table striped bordered hover variant="dark" className='text-center fs-5'>
                     <thead>
@@ -24,13 +25,13 @@ export default function MakeTable({ tableData, sendDataToParent, setShow, setEdi
                         </tr>
                     </thead>
                     <tbody>
-                        {tableData.map((ele, index) => (
+                        {medicineData.map((ele, index) => (
                             <tr key={index} id={ele.id}>
                                 <td>{ele.medicineName}</td>
                                 <td>{ele.quantity}</td>
                                 <td>{ele.expiryDate}</td>
                                 <td>{ele.pack}</td>
-                                <td>{ele.batchName}</td>
+                                <td>{ele.batch}</td>
                                 <td style={{ width: "20%" }}>
                                     <button className='btn btn-primary m-auto ms-3' onClick={() => onEdit(index)}>Edit</button>
                                     {/* <button className='btn btn-primary m-auto ms-3'>Edit</button> */}
@@ -41,6 +42,6 @@ export default function MakeTable({ tableData, sendDataToParent, setShow, setEdi
                     </tbody>
                 </Table>
             ) :
-            <h1 className='text-white'>No Record Required</h1>
+            <h1 className='text-black'>No Record Required</h1>
     )
 }

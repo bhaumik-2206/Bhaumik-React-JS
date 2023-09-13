@@ -1,133 +1,94 @@
-// import React from 'react'
-// import { useState } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
-// import Modal from 'react-bootstrap/Modal';
-// import { Pack, Batch } from './Pack';
-// import allData from "./MainArray";
-// import Table from "./Table";
-
-// export default function Module() {
-//     const [show, setShow] = useState(false);
-//     const handleClose = () => setShow(false);
-//     const handleShow = () => setShow(true);
-
-//     // const [mainArray, setAllData] = useState(allData);
-//     const addMedicineInTable = (e) => {
-//         e.preventDefault();
-//         if (e.target.medicineName.value.trim() !== '') {
-//             // setAllData([...mainArray, {
-//             //     id: mainArray.length - 1,
-//             //     medicineName: e.target.medicineName.value.trim(),
-//             //     pack: e.target.selectPack.value,
-//             //     quantity: Number(e.target.quantity.value),
-//             //     selectedDate: null,
-//             //     selectedDays: null,
-//             //     expiryDate: null,
-//             //     batchName: e.target.batchName.value,
-//             // }]);
-//             allData.push(
-//                 {
-//                     id: allData.length - 1,
-//                     medicineName: e.target.medicineName.value.trim(),
-//                     pack: e.target.selectPack.value,
-//                     quantity: Number(e.target.quantity.value),
-//                     selectedDate: null,
-//                     selectedDays: null,
-//                     expiryDate: null,
-//                     batchName: e.target.batchName.value,
-//                 }
-//             )
-//             setShow(false);
-//             console.log(allData);
-//             // allData = mainArray;
-//         }
-//     }
-//     // console.log(allData);
-
-
-//     return (
-//         <>
-//             <Button variant="primary" onClick={handleShow}>Add Medicine</Button>
-//             <Modal show={show} onHide={handleClose}>
-//                 <Modal.Header closeButton>
-//                     <Modal.Title>Modal heading</Modal.Title>
-//                 </Modal.Header>
-//                 <Modal.Body>
-//                     <form action="" onSubmit={addMedicineInTable}>
-//                         <Form.Group className="mb-3" controlId="formBasicEmail">
-//                             <Form.Label>Name</Form.Label>
-//                             <Form.Control type="text" name='medicineName' placeholder="Enter medicine name" />
-//                         </Form.Group>
-//                         <Form.Select aria-label="Default select example" name='selectPack' className='mb-3'>
-//                             <option>Select Pack</option>
-//                             <Pack />
-//                         </Form.Select>
-//                         <Form.Group className="mb-3" controlId="formBasicEmail">
-//                             <Form.Label>Quantity</Form.Label>
-//                             <Form.Control type="number" name='quantity' min={0} placeholder="Enter medicine name" />
-//                         </Form.Group>
-//                         <Form.Label>Expiry Date</Form.Label>
-//                         {['radio'].map((type) => (
-//                             <div key={`inline-${type}`} className="mb-3">
-//                                 <Form.Check inline label="By Date" name="group1" type={type} id={`inline-${type}-1`} />
-//                                 <Form.Check inline label="By Days" name="group1" type={type} id={`inline-${type}-2`} />
-//                             </div>
-//                         ))}
-//                         <Form.Select aria-label="Default select example" name='batchName'>
-//                             <option>Select Pack</option>
-//                             <Batch />
-//                         </Form.Select>
-//                         <button type="submit" className='btn btn-primary m-auto d-block mt-3'>Add Medicine</button>
-//                     </form>
-//                 </Modal.Body>
-//             </Modal>
-//         </>
-//     );
-// }
-
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { Pack, Batch } from './Pack';
-import Table from "./Table";
+import dayjs from 'dayjs';
 
-export default function Module({ data }) {
-    const [show, setShow] = useState(false);
-    const [mainArray, setMainArray] = useState(data);
+export default function AddMedicineForm({ editInfo, data, sendDataToGrandParent, show, setShow }) {
+    const [expiryType, setExpiryType] = useState('');
+    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOptionBatch, setSelectedOptionBatch] = useState('');
+    const [selectedDate, setSelectedDate] = useState('');           // Selected Date 
+    const [selectedDays, setSelectedDays] = useState("");           // Selected Date 
+    const [isPastDate, setIsPastDate] = useState(true);             // It is a valid date or not
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
-    const addMedicineInTable = (e) => {
+    const handleDateChange = (e) => {
+        const inputDate = e.target.value;
+        setSelectedDate(inputDate);
+        const SelDate = dayjs(inputDate);
+        const currentDate = dayjs();
+        if (SelDate.isBefore(currentDate, 'day') && expiryType === "byDate") {
+            setIsPastDate(false);
+        } else if (expiryType === "byDays") {
+            let expiryDate = SelDate.add(selectedDays, 'day');
+            if (expiryDate.isBefore(currentDate, 'day')) {
+                setIsPastDate(false);
+            } else {
+                setIsPastDate(true);
+            }
+        } else {
+            setIsPastDate(true);
+        }
+    };
+
+    const handleSelectChange = (event) => {
+        const selectedValue = event.target.value;
+        setSelectedOption(selectedValue);
+    };
+    const handleClose = () => {
+        setShow(false);
+        setSelectedOption("");
+        setSelectedDate("");
+        setIsPastDate(true);
+        setExpiryType("");
+    };
+
+    const changeDaysWhenChange = (e) => {
         e.preventDefault();
-        if (e.target.medicineName.value.trim() !== '') {
-            setMainArray((prevMainArray) => [
-                ...prevMainArray,
-                {
-                    id: prevMainArray.length + 1,
-                    medicineName: e.target.medicineName.value.trim(),
-                    pack: e.target.selectPack.value,
-                    quantity: Number(e.target.quantity.value),
-                    selectedDate: null,
-                    selectedDays: null,
-                    expiryDate: null,
-                    batchName: e.target.batchName.value,
-                },
-            ]);
-            setShow(false);
+        setSelectedDays(e.target.value);
+        let a = dayjs(selectedDate);
+        let expiryDate = a.add(e.target.value, 'day');
+        if (expiryDate.isBefore(dayjs(), 'day')) {
+            setIsPastDate(false);
+        } else {
+            setIsPastDate(true);
         }
     }
 
-    const receiveDataFromChild = (data) => {
-        console.log('Data received from child:', data);
-        setMainArray(data);
-    };
+    const addMedicineInTable = (e) => {
+        e.preventDefault();
+        // let searchMedicine = data.findIndex(ele => ele.medicineName.toUpperCase() === e.target.medicineName.value.trim().toUpperCase());
+        // if (searchMedicine !== -1) {
+        //     alert("Medicine already exists!!!");
+        //     return;
+        // }
+        if (editInfo) {
 
+        } else if (e.target.medicineName.value.trim() !== '' && isPastDate) {
+            let selectedDate = dayjs(expiryType === 'byDate' ? e.target.expiryDateByDate.value : e.target.expiryDateByDays.value);
+            let selDays = expiryType === 'byDays' ? e.target.addDaysInExpiryDateByDays.value : "";
+            // setSelectedDays(selDays);
+            let add = selectedDate.add(selDays, 'day');
+            const newItem = {
+                id: data.length > 0 ? data[data.length - 1].id + 1 : 1,
+                medicineName: e.target.medicineName.value.trim(),
+                pack: e.target.selectPack.value,
+                quantity: Number(e.target.quantity.value),
+                selectedDate: selectedDate.format("YYYY-MM-DD"),
+                selectedDays: selectedDays,
+                expiryDate: expiryType === 'byDate' ? selectedDate.format("YYYY-MM-DD") : add.format("YYYY-MM-DD"),
+                batchName: e.target.batchName.value,
+            };
+            sendDataToGrandParent((preMedicine) => {
+                return [...preMedicine, newItem]
+            });
+            handleClose();
+        }
+    }
+    const [medi, setMedi] = useState("");
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>Add Medicine</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Medicine</Modal.Title>
@@ -136,32 +97,45 @@ export default function Module({ data }) {
                     <form action="" onSubmit={addMedicineInTable}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" name='medicineName' placeholder="Enter medicine name" />
+                            <Form.Control type="text" value={editInfo ? editInfo.medicineName : medi} onChange={(e) => setMedi(e.target.value)} name='medicineName' placeholder="Enter medicine name" required />
                         </Form.Group>
-                        <Form.Select aria-label="Default select example" name='selectPack' className='mb-3'>
-                            <option>Select Pack</option>
+                        <Form.Select aria-label="Default select example" value={editInfo ? editInfo.pack : selectedOption} onChange={handleSelectChange} name='selectPack' className='mb-3' required>
+                            <option value="">Select Pack</option>
                             <Pack />
                         </Form.Select>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Quantity</Form.Label>
-                            <Form.Control type="number" name='quantity' min={0} placeholder="Enter medicine name" />
+                            <Form.Control type="number" value={editInfo?.quantity} name='quantity' min={0} placeholder="Enter medicine Quantity" required />
                         </Form.Group>
-                        <Form.Label>Expiry Date</Form.Label>
-                        {['radio'].map((type) => (
-                            <div key={`inline-${type}`} className="mb-3">
-                                <Form.Check inline label="By Date" name="group1" type={type} id={`inline-${type}-1`} />
-                                <Form.Check inline label="By Days" name="group1" type={type} id={`inline-${type}-2`} />
-                            </div>
-                        ))}
-                        <Form.Select aria-label="Default select example" name='batchName'>
-                            <option>Select Batch</option>
-                            <Batch />
+                        <div key={`inline-radio`} className="mb-3">
+                            <Form.Check inline label="By Date" name="expiryType" type="radio" id={`inline-radio-byDate`} value="byDate" checked={editInfo ? true : expiryType === 'byDate'} onChange={(e) => setExpiryType(e.target.value)} required />
+                            <Form.Check inline label="By Days" name="expiryType" type="radio" id={`inline-radio-byDays`} value="byDays" checked={editInfo ? (editInfo.selectedDays ? true : "") : expiryType === 'byDays'} onChange={(e) => setExpiryType(e.target.value)} required />
+                        </div>
+                        {expiryType === 'byDate' ? (
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Control type="date" value={editInfo ? editInfo.expiryDate : selectedDate} onChange={handleDateChange} name='expiryDateByDate' required />
+                                {/* <input type="date" onChange={(e) => e.target.value} /> */}
+                                {!isPastDate && (
+                                    <p style={{ color: 'red' }}>Please select a date in the future.</p>
+                                )}
+                            </Form.Group>
+                        ) : false}
+                        {expiryType === 'byDays' ? (
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Control type="date" value={editInfo ? editInfo.selectedDate : selectedDate} onChange={handleDateChange} name='expiryDateByDays' required />
+                                <Form.Control type="number" value={editInfo ? editInfo.selectedDays : selectedDays} onChange={changeDaysWhenChange} min={0} name='addDaysInExpiryDateByDays' required />
+                                {!isPastDate ? (
+                                    <p style={{ color: 'red' }}>Please select a date in the future.</p>
+                                ) : false}
+                            </Form.Group>
+                        ) : false}
+                        <Form.Select value={selectedOptionBatch} aria-label="Default select example" name='batchName' disabled>
+                            <Batch indexOfPackValue={selectedOption} getValueFromBatch={(data => setSelectedOptionBatch(data))} />
                         </Form.Select>
-                        <button type="submit" className='btn btn-primary m-auto d-block mt-3'>Add Medicine</button>
+                        <button type="submit" className='btn btn-primary m-auto d-block mt-3'>{editInfo?.medicineName ? "Update Med" : "Add Med"}</button>
                     </form>
                 </Modal.Body>
-            </Modal>
-            <Table tableData={mainArray} sendDataToParent={receiveDataFromChild} />
+            </Modal >
         </>
     );
 }

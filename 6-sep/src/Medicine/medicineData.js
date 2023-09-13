@@ -1,4 +1,4 @@
-let allData = [
+let MedicineData = [
     {
         id: 1,
         medicineName: "dolo",
@@ -7,7 +7,7 @@ let allData = [
         selectedDate: "2023-12-11",
         selectedDays: null,
         expiryDate: "2023-12-11",
-        batchName: "A1",
+        batch: "A1",
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ let allData = [
         selectedDate: "2023-12-11",
         selectedDays: null,
         expiryDate: "2023-12-11",
-        batchName: "A2",
+        batch: "A2",
     }
 ];
-export default allData;
+export default MedicineData;
