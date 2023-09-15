@@ -155,9 +155,9 @@ rfc=function component
 rfce=function component
 
 
-Watch video on useEffect Hooks , how to use , parameter , when the effect is runs , controlled vs uncontrolled (how to use both of those form controls)
-Read react documentation on useEffect hooks , also read article on difference between controlled and uncontrolled 
-Make CRUD with fetch API (json server) , Add the user data info like fname , lname , email , password , mobile numebr and add those data in API , and print this data in table , also add delete button to delete the data , also practice on some useEffect example (how to use and when the useEffect run) , controlled and uncontrolled form controls
+
+
+
 
 
 
