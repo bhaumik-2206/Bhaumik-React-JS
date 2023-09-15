@@ -80,7 +80,7 @@ export default function AddDataModal({ show, setShow, onAddUser, userData }) {
                             <input className='form-control' value={currentUserData.password} onChange={(e) => setCurrentUserData(preValue => ({ ...preValue, password: e.target.value }))} type="password" id='password' placeholder='Enter Password' name='password' required />
                         </div>
                         {isDataTrue.password ?
-                            (<p style={{ color: 'red' }}>Please Enter Valid Password</p>)
+                            (<p style={{ color: 'red' }}>Please Enter Valid Password(atleast one lowercase,uppercase,number and special character)</p>)
                             : (false)}
                         <div className='form-group mb-3'>
                             <label htmlFor="phoneNo">Mobile Number:-</label>

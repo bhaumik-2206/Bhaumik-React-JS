@@ -1,20 +1,20 @@
 {
   "data": [
     {
-      "fname": "   refvr",
-      "lname": "  rfvrcv",
+      "fname": "Bhaumik",
+      "lname": "Panchal",
       "email": "bhaumikpanchal2206@gmail.com",
       "password": "uuUU88**",
-      "mobile": "0942961373",
-      "id": 1
+      "mobile": "9874563210",
+      "id": 3
     },
     {
       "fname": "Bhaumik",
       "lname": "Panchal",
       "email": "bhaumikpanchal2206@gmail.com",
-      "password": "uuUU88*8",
+      "password": "uuUU88**",
       "mobile": "0942961373",
-      "id": 2
+      "id": 4
     }
   ]
 }

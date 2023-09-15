@@ -234,45 +234,82 @@ import './App.css';
 // }
 
 
-// import MainPage from './CRUD/MainPage';
+import MainPage from './CRUD/MainPage';
+export default function App() {
+  return (
+    <div>
+      <MainPage />
+    </div>
+  )
+}
+
+// import React, { useState, useEffect } from 'react'
 // export default function App() {
+//   const [name, setName] = useState("")
+//   const [count, setCount] = useState([]);
+
+//   useEffect(() => {
+//     console.log("Name or Count change");
+//   }, [name, count])
+
+//   useEffect(() => {
+//     console.log("name change");
+//   }, [name])
+
+//   useEffect(() => {
+//     console.log("count change");
+//   }, [count])
+
 //   return (
 //     <div>
-//       <MainPage />
+//       <h1>{name}</h1>
+//       <button onClick={() => setName("A")}>A Click</button>
+//       <button onClick={() => setName("B")}>B Click</button>
+//       <button onClick={() => setName("C")}>C Click</button><br />
+//       <h1>{count}</h1>
+//       <button onClick={() => setCount(10)}>setCount</button>
+//       <button onClick={() => setCount(20)}>setCount</button>
+//       <button onClick={() => setCount(30)}>setCount</button>
 //     </div>
 //   )
 // }
 
-import React, { useState, useEffect } from 'react'
-export default function App() {
-  const [name, setName] = useState("")
-  const [count, setCount] = useState([]);
 
-  useEffect(() => {
-    console.log("Name or Count change");
-  }, [name, count])
+// import React, { useState } from 'react'
+// export default function App() {
+//   const [change, setChange] = useState("")
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log(change);
+//   }
+//   const handleChange = (e) => {
+//     setChange(e.target.value);
+//     console.log(change)
+//   }
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit} action="">
+//         <input type="text" value={change} onChange={handleChange} />
+//       </form>
+//     </div>
+//   )
+// }
 
-  useEffect(() => {
-    console.log("name change");
-  }, [name])
+// let guest = 0;
+// function Cup() {
+//   guest = guest + 1;
+//   return <h2>Tea cup for guest #{guest}</h2>;
+// }
+// export default function TeaSet() {
+//   return (
+//     <>
+//       <Cup />
+//       <Cup />
+//       <Cup />
+//     </>
+//   );
+// }
 
-  useEffect(() => {
-    console.log("count change");
-  }, [count])
-
-  return (
-    <div>
-      <h1>{name}</h1>
-      <button onClick={() => setName("A")}>A Click</button>
-      <button onClick={() => setName("B")}>B Click</button>
-      <button onClick={() => setName("C")}>C Click</button><br />
-      <h1>{count}</h1>
-      <button onClick={() => setCount(10)}>setCount</button>
-      <button onClick={() => setCount(20)}>setCount</button>
-      <button onClick={() => setCount(30)}>setCount</button>
-    </div>
-  )
-}
 
 
 
