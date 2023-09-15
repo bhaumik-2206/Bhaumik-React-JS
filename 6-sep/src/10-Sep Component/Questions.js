@@ -315,48 +315,69 @@
 //     )
 // }
 
-import { useState } from 'react'
+// import { useState } from 'react'
 
-export default function Questions() {
-    const [formData, setFormData] = useState({ name: "", check: false, radioCheck: null, selectOption: 'apple' });
-    console.log(formData);
-    return (
-        <div>
-            <label htmlFor="un">
-                UncontrolledL:-
-                <input type="text" name="" id="un" />
-            </label><br /><br />
-            <label htmlFor="con">
-                Controlled
-                <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} name="" id="con" />  {/*this is controlled form we sontrol form with state set state and change state in on change */}
-            </label><br /><br />
-            <label htmlFor="check">
-                <input type="checkbox" checked={formData.check} onChange={(e) => setFormData({ ...formData, check: !formData.check })} name="" id="check" />  {/*this is controlled form we sontrol form with state set state and change state in on change */}
-                CheckBox
-            </label><br /><br />
-            <div>
-                <div>Select Anp Options</div>
-                <label>
-                    <input type="radio" name="options" value="option1" checked={formData.radioCheck === 'option1'} onChange={(e) => setFormData({ ...formData, radioCheck: e.target.value })} />
-                    Option 1
-                </label><br />
-                <label>
-                    <input type="radio" name="options" value="option2" checked={formData.radioCheck === 'option2'} onChange={(e) => setFormData({ ...formData, radioCheck: e.target.value })} />
-                    Option 2
-                </label><br />
-                <label>
-                    <input type="radio" name="options" value="option3" checked={formData.radioCheck === 'option3'} onChange={(e) => setFormData({ ...formData, radioCheck: e.target.value })} />
-                    Option 3
-                </label><br />
-            </div>
-            <label>
-                Pick a fruit:
-                <select name="selectedFruit" value={formData.selectOption} onChange={(e) => setFormData({ ...formData, selectOption: e.target.value })}>
-                    <option value="apple">Apple</option>
-                    <option value="banana">Banana</option>
-                    <option value="orange">Orange</option>
-                </select>
-            </label>
-        </div >
-    )
-}
+// export default function Questions() {
+//     const [formData, setFormData] = useState({ name: "", check: false, radioCheck: null, selectOption: 'apple' });
+//     console.log(formData);
+//     return (
+//         <div>
+//             <label htmlFor="un">
+//                 UncontrolledL:-
+//                 <input type="text" name="" id="un" />
+//             </label><br /><br />
+//             <label htmlFor="con">
+//                 Controlled
+//                 <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} name="" id="con" />  {/*this is controlled form we sontrol form with state set state and change state in on change */}
+//             </label><br /><br />
+//             <label htmlFor="check">
+//                 <input type="checkbox" checked={formData.check} onChange={(e) => setFormData({ ...formData, check: !formData.check })} name="" id="check" />  {/*this is controlled form we sontrol form with state set state and change state in on change */}
+//                 CheckBox
+//             </label><br /><br />
+//             <div>
+//                 <div>Select Anp Options</div>
+//                 <label>
+//                     <input type="radio" name="options" value="option1" checked={formData.radioCheck === 'option1'} onChange={(e) => setFormData({ ...formData, radioCheck: e.target.value })} />
+//                     Option 1
+//                 </label><br />
+//                 <label>
+//                     <input type="radio" name="options" value="option2" checked={formData.radioCheck === 'option2'} onChange={(e) => setFormData({ ...formData, radioCheck: e.target.value })} />
+//                     Option 2
+//                 </label><br />
+//                 <label>
+//                     <input type="radio" name="options" value="option3" checked={formData.radioCheck === 'option3'} onChange={(e) => setFormData({ ...formData, radioCheck: e.target.value })} />
+//                     Option 3
+//                 </label><br />
+//             </div>
+//             <label>
+//                 Pick a fruit:
+//                 <select name="selectedFruit" value={formData.selectOption} onChange={(e) => setFormData({ ...formData, selectOption: e.target.value })}>
+//                     <option value="apple">Apple</option>
+//                     <option value="banana">Banana</option>
+//                     <option value="orange">Orange</option>
+//                 </select>
+//             </label>
+//         </div >
+//     )
+// }
+
+// import React, { useState, useEffect } from 'react';
+
+// export default function Questions({ data }) {
+//     // Use the useState hook with functional update
+//     const [myData, setMyData] = useState("");
+
+//     // Update myData only when data changes
+//     useEffect(() => {
+//         setMyData(data ? data : "");
+//     }, [data]);
+//     console.log(data)
+//     console.log(myData)
+
+//     return (
+//         <div>
+//             <h1>{data}</h1>
+//             <h1>{myData}</h1>
+//         </div>
+//     )
+// }

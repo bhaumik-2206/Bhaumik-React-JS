@@ -9,14 +9,14 @@ let packs = [
     { id: 8, value: "pack-8" },
 ];
 let batch = [
-    { id: "pack-1", batch: "A1" },
-    { id: "pack-2", batch: "A2" },
-    { id: "pack-3", batch: "A3" },
-    { id: "pack-4", batch: "A4" },
-    { id: "pack-5", batch: "A5" },
-    { id: "pack-6", batch: "A6" },
-    { id: "pack-7", batch: "A7" },
-    { id: "pack-8", batch: "A8" },
+    { id: 1, batch: "A1" },
+    { id: 2, batch: "A2" },
+    { id: 3, batch: "A3" },
+    { id: 4, batch: "A4" },
+    { id: 5, batch: "A5" },
+    { id: 6, batch: "A6" },
+    { id: 7, batch: "A7" },
+    { id: 8, batch: "A8" },
 ];
 export function Pack() {
     return (
@@ -27,18 +27,18 @@ export function Pack() {
         </>
     )
 }
-export function Batch({ indexOfPackValue, getValueFromBatch }) {
-    if (indexOfPackValue) {
-        let BatchValue = batch.findIndex((ele, index) => indexOfPackValue === ele.id);
-        getValueFromBatch(batch[BatchValue].batch);
-        return (
-            <>
-                <option value={batch[BatchValue].batch}>{batch[BatchValue].batch}</option>
-            </>
-        )
+export function Batch({ selectedOption, setSelectedOptionBatch }) {
+    let index = packs.findIndex(ele => selectedOption === ele.value);
+    if (index !== -1) {
+        setSelectedOptionBatch(batch[index].batch);
     } else {
-        return (
-            <option>Select Batch</option>
-        )
+        setSelectedOptionBatch("");
     }
+    return (
+        <>
+            {batch.map((ele, index) => (
+                <option key={index} value={ele.batch}>{ele.batch}</option>
+            ))}
+        </>
+    )
 }

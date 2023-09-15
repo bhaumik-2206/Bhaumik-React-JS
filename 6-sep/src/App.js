@@ -196,35 +196,165 @@ import './App.css';
 // export default MainComponent;
 
 
-import Button from 'react-bootstrap/Button';
-import MedicineData from './Medicine/medicineData';
-import React, { useState } from 'react'
-import Table from './Medicine/Table';
-import AddMedicineModal from './Medicine/AddMedicineModal';
 
+// import MedicineData from './Medicine/medicineData';
+// import React, { useState } from 'react'
+// import { MakeMedicineTable, MakeRecordTable } from './Medicine/Table';
+// import AddMedicineModal from './Medicine/AddMedicineModal';
+// import AddRecordModal from './Medicine/AddRecordModal';
+
+// export default function App() {
+//   const [medicineData, setMedicineData] = useState(MedicineData);
+//   const [medicineRecord, setMedicineRecord] = useState([]);
+//   const [showAddMedicineModal, setShowAddMedicineModal] = useState(false);
+//   const [showAddRecordModal, setShowAddRecordModal] = useState(false);
+//   const [editInfo, setEditInfo] = useState(null);
+//   const handleAddMedicineForm = () => {
+//     setShowAddMedicineModal(true);
+//     setEditInfo(null);
+//   }
+//   const handleAddRecordForm = () => {
+//     setShowAddRecordModal(true);
+//   }
+//   return (
+//     <div>
+//       <div className='text-center'>
+//         <button className='btn btn-primary m-3' onClick={handleAddMedicineForm}>Add Medicine</button>
+//         <button className='btn btn-primary m-3' onClick={handleAddRecordForm}>Add Record</button>
+//         <button className='btn btn-primary m-3' onClick={handleAddRecordForm}>Add Out Record</button>
+//       </div>
+
+//       <AddMedicineModal showAddMedicineModal={showAddMedicineModal} setShowAddMedicineModal={setShowAddMedicineModal} medicineData={medicineData} setMedicineData={setMedicineData} editInfo={editInfo} />
+//       <AddRecordModal showAddRecordModal={showAddRecordModal} setShowAddRecordModal={setShowAddRecordModal} medicineData={medicineData} setMedicineData={setMedicineData} medicineRecord={medicineRecord} setMedicineRecord={setMedicineRecord} />
+
+//       <MakeMedicineTable medicineData={medicineData} setMedicineData={setMedicineData} setShowAddMedicineModal={setShowAddMedicineModal} setEditInfo={setEditInfo} />
+//       <MakeRecordTable medicineRecord={medicineRecord} />
+//     </div>
+//   )
+// }
+
+
+// import MainPage from './CRUD/MainPage';
+// export default function App() {
+//   return (
+//     <div>
+//       <MainPage />
+//     </div>
+//   )
+// }
+
+import React, { useState, useEffect } from 'react'
 export default function App() {
-  const [medicineData, setMedicineData] = useState(MedicineData);
-  const [show, setShow] = useState(false);
-  const [editInfo, setEditInfo] = useState(-1)
-  const handleShow = () => {
-    setShow(true);
-    setEditInfo(-1);
-  }
+  const [name, setName] = useState("")
+  const [count, setCount] = useState([]);
+
+  useEffect(() => {
+    console.log("Name or Count change");
+  }, [name, count])
+
+  useEffect(() => {
+    console.log("name change");
+  }, [name])
+
+  useEffect(() => {
+    console.log("count change");
+  }, [count])
+
   return (
     <div>
-      <Button onClick={handleShow} variant="primary">Add Medicine</Button>
-      <AddMedicineModal show={show} setShow={setShow} medicineData={medicineData} setMedicineData={setMedicineData} editInfo={editInfo} />
-      <Table medicineData={medicineData} setMedicineData={setMedicineData} setShow={setShow} setEditInfo={setEditInfo} />
+      <h1>{name}</h1>
+      <button onClick={() => setName("A")}>A Click</button>
+      <button onClick={() => setName("B")}>B Click</button>
+      <button onClick={() => setName("C")}>C Click</button><br />
+      <h1>{count}</h1>
+      <button onClick={() => setCount(10)}>setCount</button>
+      <button onClick={() => setCount(20)}>setCount</button>
+      <button onClick={() => setCount(30)}>setCount</button>
     </div>
   )
 }
 
 
 
+// import React, { useState } from 'react'
+// export default function App() {
+//   const [count, setCount] = useState(0)
+//   const handleClick = () => {
+//     // setCount((preValue) => preValue + 1);
+//     // setCount((preValue) => preValue + 1);
+//     // setCount((preValue) => preValue + 1);
+//     setCount(count + 1)
+//     // console.log(setCount(count + 1));
+//     // console.log(setCount(count + 1));
+//     // console.log(setCount(count + 1));
+//     console.log(count)
+//   }
+//   return (
+//     <div>
+//       <h1>
+//         {count}
+//       </h1>
+//       <button onClick={handleClick}>CLICK</button>
+//     </div>
+//   )
+// }
 
 
+// import React, { useRef } from 'react';
+// function UncontrolledForm() {
+//   const inputRef = useRef(null);
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log(inputRef.current)
+//     console.log(inputRef.current.value)
+//     alert(`Input Value: ${inputRef.current.value}`);
+//     // alert(`Input Value: ${e.target.inputName.value}`);
+//   };
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <input type="text" ref={inputRef} />
+//       {/* <input type="text" name="inputName" /> */}
+//       <button type="submit">Submit</button>
+//     </form>
+//   );
+// }
+// export default UncontrolledForm;
 
 
+// import { useState } from 'react'
+// export default function App() {
+//   const [count, setCount] = useState(0);
+//   const [answer, setAnswer] = useState(0)
+//   const handleCLick = () => {
+//     setCount((a) => a + 1);
+//     setAnswer((b) => b + count);
+//   }
+//   return (
+//     <div>
+//       {/* <Questions /> */}
+//       <h1>{count}</h1>
+//       <h1>{answer}</h1>
+//       <button onClick={handleCLick}>CLICK</button>
+//     </div>
+//   )
+// }
+
+
+// import React, { useState } from 'react'
+// import Questions from './10-Sep Component/Questions';
+// export default function App() {
+//   const [data, setData] = useState(null);
+//   const handleClick = () => {
+//     setData("HELLO");
+//   }
+//   return (
+//     <div>
+//       <Questions data={data} />
+//       <button onClick={handleClick}>CLICK</button>
+//     </div>
+//   )
+// }
 
 
 // import Button from 'react-bootstrap/Button';

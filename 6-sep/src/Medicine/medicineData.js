@@ -15,7 +15,7 @@ let MedicineData = [
         pack: "pack-2",
         quantity: 120,
         selectedDate: "2023-12-11",
-        selectedDays: null,
+        selectedDays: 20,
         expiryDate: "2023-12-11",
         batch: "A2",
     }
