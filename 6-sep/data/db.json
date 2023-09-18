@@ -1,28 +1,52 @@
 {
   "data": [
     {
-      "fname": "BhaumikR",
+      "fname": "Bhaumik",
       "lname": "Panchal",
       "email": "bhaumikpanchal2206@gmail.com",
-      "password": "iufygbvdjik",
-      "mobile": "09429613731",
+      "password": "Bhaumik@2206",
+      "mobile": "9429613731",
       "id": 1
     },
     {
-      "fname": "Bhaumik",
-      "lname": "Panchal",
-      "email": "bhaumik@gmail.com",
-      "password": "bhaumik(22066^D)",
-      "mobile": "9429613731",
+      "fname": "Raj",
+      "lname": "Bundela",
+      "email": "rajbundela@gmail.com",
+      "password": "Raj@1709",
+      "mobile": "7990684975",
       "id": 2
+    },
+    {
+      "fname": "Riddhi",
+      "lname": "Prajapati",
+      "email": "riddhiprajapati1709@gmail.com",
+      "password": "Riddhi@1709",
+      "mobile": "9876543210",
+      "id": 3
+    },
+    {
+      "fname": "Pinki",
+      "lname": "Panchal",
+      "email": "pinkipanchal@gmail.com",
+      "password": "Pinki283@283",
+      "mobile": "7203072030",
+      "id": 5
     },
     {
       "fname": "Vivek",
       "lname": "Panchal",
       "email": "vivekpanchal@gmail.com",
       "password": "Vivek@194",
-      "mobile": "9874563210",
-      "id": 3
+      "mobile": "9876543210",
+      "id": 4
+    },
+    {
+      "fname": "Bhavik",
+      "lname": "Panchal",
+      "email": "bhavikpanchal@gmail.com",
+      "password": "Bhavik@1234",
+      "mobile": "9879465320",
+      "id": 6
     }
   ]
 }

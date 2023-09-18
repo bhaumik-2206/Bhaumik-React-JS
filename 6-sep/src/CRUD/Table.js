@@ -1,10 +1,13 @@
+import Modal from 'react-bootstrap/Modal';
 export default function Table({ userData, setIsDeleteUser, setIsEditInfo }) {
     const onEdit = (index) => {
         setIsEditInfo(userData[index].id);
     }
 
     const onDelete = (index) => {
-        setIsDeleteUser(userData[index].id);
+        if (window.confirm('Are you sure you want to delete!!')) {
+            setIsDeleteUser(userData[index].id);
+        }
     }
 
     return (

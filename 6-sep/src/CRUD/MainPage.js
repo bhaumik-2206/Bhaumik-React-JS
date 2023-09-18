@@ -6,7 +6,6 @@ export default function MainPage() {
     const [show, setShow] = useState(false);
     const [userData, setUserData] = useState([]);
     const [isEditInfo, setIsEditInfo] = useState(-1);
-    // const [updateEditData, setUpdateEditData] = useState({});
 
     useEffect(() => {
         // console.log(isEditInfo);
@@ -21,8 +20,6 @@ export default function MainPage() {
             .then((response) => response.json())
             .then((data) => setUserData(data));
     }, []);
-
-    // console.log(userData);
 
     const addUserDataForm = () => {
         setShow(true);

@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import Modal from 'react-bootstrap/Modal';
+import ModalUserForm from './Modal';
 
 export default function AddDataModal({ userData, show, setShow, onAddUser, isEditInfo, setIsEditInfo }) {
-    let falseData = { fname: "", lname: "", password: "", mobile: "" };
+    let falseData = { fname: "", lname: "", password: "", mobile: "", email: "" };
     const [currentUserData, setCurrentUserData] = useState({ fname: "", lname: "", email: "", password: "", mobile: "" })
     const [isDataFalse, setIsDataFalse] = useState(falseData);
 
     useEffect(() => {
         if (isEditInfo !== -1) {
-            let editedData = userData.find(ele => ele.id === isEditInfo);
-            setCurrentUserData(editedData);
+            fetch('http://localhost:3400/data')
+                .then((response) => response.json())
+                .then((data) => {
+                    let editedData = data.find(ele => ele.id === isEditInfo);
+                    setCurrentUserData(editedData);
+                });
         }
-    }, [isEditInfo])
-
+    }, [isEditInfo, userData])
 
     const handleClose = () => {
         setShow(false);
@@ -21,59 +24,74 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
         setIsDataFalse(falseData);
     }
 
-    const checkSetFirstName = (e) => {
-        setCurrentUserData(preValue => ({ ...preValue, fname: e.target.value }));
-        if (e.target.value.trim().length === 0) {
-            setIsDataFalse({ ...isDataFalse, fname: "" });
-        } else if (e.target.value.trim().length < 3) {
-            setIsDataFalse({ ...isDataFalse, fname: <p style={{ color: 'red' }}>First Name Have At least 3 letter</p> });
-        } else {
-            setIsDataFalse({ ...isDataFalse, fname: "" });
-        }
-    }
+    const validationRules = {
+        fname: {
+            min: 3,
+            error: 'First Name must have at least 3 letters',
+        },
+        lname: {
+            min: 3,
+            error: 'Last Name must have at least 3 letters',
+        },
+        email: {
+            pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+            error: 'Please enter a valid Email',
+        },
+        password: {
+            pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^*&+=/_-]).{8,}$/,
+            error: 'Your password is not strong enough. Please include at least 8 character and one Lowercase , Uppercase , Number and Special Character.',
+        },
+        mobile: {
+            min: 10,
+            max: 10,
+            error: 'Mobile Number must have exactly 10 numbers',
+        },
+    };
 
-    const checkSetLastName = (e) => {
-        setCurrentUserData(preValue => ({ ...preValue, lname: e.target.value }));
-        if (e.target.value.trim().length < 3) {
-            setIsDataFalse({ ...isDataFalse, lname: <p style={{ color: 'red' }}>Last Name Have At least 3 letter</p> });
+    const checkSetTheTrueData = (e) => {
+        const { id, value } = e.target;
+        const rule = validationRules[id];
+        setCurrentUserData(preValue => ({ ...preValue, [id]: value }));
+        // console.log(value.split(" ").filter(Boolean).join("").length)
+        if (value.length === 0) {
+            setIsDataFalse({ ...isDataFalse, [id]: '' });
+        } else if (id === "password" && value.includes(" ")) {
+            setIsDataFalse({ ...isDataFalse, [id]: <p style={{ color: 'red' }}>Password cannot contain spaces</p> });
+        } else if (rule.pattern && !rule.pattern.test(value)) {
+            setIsDataFalse({ ...isDataFalse, [id]: <p style={{ color: 'red' }}>{rule.error}</p> });
+        } else if (rule.min && value.split(" ").filter(Boolean).join(" ").length < rule.min) {
+            setIsDataFalse({ ...isDataFalse, [id]: <p style={{ color: 'red' }}>{rule.error}</p> });
+        } else if (rule.max && value.trim().length > rule.max) {
+            setIsDataFalse({ ...isDataFalse, [id]: <p style={{ color: 'red' }}>{rule.error}</p> });
         } else {
-            setIsDataFalse({ ...isDataFalse, lname: "" });
+            setIsDataFalse({ ...isDataFalse, [id]: '' });
         }
-    }
-
-    const checkSetPassword = (e) => {
-        setCurrentUserData(preValue => ({ ...preValue, password: e.target.value }));
-        if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^*&+=_-]).{8,}$/.test(e.target.value)) {
-            setIsDataFalse({ ...isDataFalse, password: <p style={{ color: 'red' }}>Please Include atleast one lowercase,uppercase,number,special character</p> });
-        } else {
-            setIsDataFalse({ ...isDataFalse, password: "" });
-        }
-    }
-
-    const checkSetMobileNumber = (e) => {
-        setCurrentUserData(preValue => ({ ...preValue, mobile: e.target.value }));
-        if (e.target.value.length < 10 || e.target.value.length > 10) {
-            setIsDataFalse({ ...isDataFalse, mobile: <p style={{ color: 'red' }}>Mobile Number Have Atleast 10 number</p> });
-        } else {
-            setIsDataFalse({ ...isDataFalse, mobile: "" });
-        }
-    }
-    // console.log(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test("example@gmail.com"));
-    function addMedicineInTable(e) {
+    };
+    // console.log("       HELLO       WORLD      ".split(" ").filter(Boolean).join(" "));
+    function addUserInTable(e) {
         e.preventDefault();
-        if (currentUserData.lname.trim() === "") {
-            setIsDataFalse(preValue => ({ ...preValue, lname: <p style={{ color: 'red' }}>Field Required</p> }));
+        let error = <p style={{ color: 'red' }}>Field Required*</p>
+        for (const key in isDataFalse) {
+            if (currentUserData[key].trim() === "") {
+                setIsDataFalse(preValue => ({ ...preValue, [key]: error }))
+            }
         }
-        if (currentUserData.fname.trim() === "") {
-            setIsDataFalse(preValue => ({ ...preValue, fname: <p style={{ color: 'red' }}>Field Required</p> }));
-        }
-        if (currentUserData.password.trim() === "") {
-            setIsDataFalse(preValue => ({ ...preValue, password: <p style={{ color: 'red' }}>Field Required</p> }));
-        }
-        if (currentUserData.mobile.trim() === "") {
-            setIsDataFalse(preValue => ({ ...preValue, mobile: <p style={{ color: 'red' }}>Field Required</p> }));
-        }
-        if (!isDataFalse.fname && !isDataFalse.lname && !isDataFalse.password && !isDataFalse.mobile && currentUserData.fname && currentUserData.lname && currentUserData.password && currentUserData.mobile) {
+        // if (currentUserData.fname.trim() === "") {
+        //     setIsDataFalse(preValue => ({ ...preValue, fname: error }));
+        // }
+        // if (currentUserData.lname.trim() === "") {
+        //     setIsDataFalse(preValue => ({ ...preValue, lname: error }));
+        // }
+        // if (currentUserData.email.trim() === "") {
+        //     setIsDataFalse(preValue => ({ ...preValue, email: error }));
+        // }
+        // if (currentUserData.password.trim() === "") {
+        //     setIsDataFalse(preValue => ({ ...preValue, password: error }));
+        // }
+        // if (currentUserData.mobile.trim() === "") {
+        //     setIsDataFalse(preValue => ({ ...preValue, mobile: error }));
+        // }
+        if (!isDataFalse.fname && !isDataFalse.lname && !isDataFalse.email && !isDataFalse.password && !isDataFalse.mobile && currentUserData.fname && currentUserData.lname && currentUserData.email && currentUserData.password && currentUserData.mobile) {
             onAddUser(currentUserData);
             handleClose();
         }
@@ -81,40 +99,112 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
 
     return (
         <div>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add Medicine</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <form action="" onSubmit={addMedicineInTable}>
-                        <div className='form-group mb-3'>
-                            <label htmlFor="fname">First Name:-</label>
-                            <input className='form-control' value={currentUserData.fname} onChange={checkSetFirstName} type="text" id='fname' placeholder='Enter First Name' name='fname' />
-                        </div>
-                        {isDataFalse.fname}
-                        <div className='form-group mb-3'>
-                            <label htmlFor="lname">Last Name:-</label>
-                            <input className='form-control' value={currentUserData.lname} onChange={checkSetLastName} type="text" id='lname' placeholder='Enter Last Name' name='lname' />
-                        </div>
-                        {isDataFalse.lname}
-                        <div className='form-group mb-3'>
-                            <label htmlFor="email">Email:-</label>
-                            <input className='form-control' value={currentUserData.email} onChange={(e) => setCurrentUserData(preValue => ({ ...preValue, email: e.target.value }))} type="email" id='email' placeholder='Enter Email' name='email' />
-                        </div>
-                        <div className='form-group mb-3'>
-                            <label htmlFor="password">Password:-</label>
-                            <input className='form-control' value={currentUserData.password} onChange={checkSetPassword} type="password" id='password' placeholder='Enter Password' name='password' />
-                        </div>
-                        {isDataFalse.password}
-                        <div className='form-group mb-3'>
-                            <label htmlFor="phoneNo">Mobile Number:-</label>
-                            <input className='form-control' value={currentUserData.mobile} onChange={checkSetMobileNumber} type="number" id='phoneNo' placeholder='Enter Mobile NUmber' name='phoneNo' />
-                        </div>
-                        {isDataFalse.mobile}
-                        <button type="submit" className='btn btn-primary m-auto d-block mt-3'>Add User</button>
-                    </form>
-                </Modal.Body>
-            </Modal >
+            <ModalUserForm show={show} isEditInfo={isEditInfo} isDataFalse={isDataFalse} checkSetTheTrueData={checkSetTheTrueData} currentUserData={currentUserData} handleClose={handleClose} addUserInTable={addUserInTable} />
         </div>
     )
 }
+
+// const checkSetTheTrueData = (e) => {
+//     if (e.target.id === "fname") {
+//         setCurrentUserData(preValue => ({ ...preValue, fname: e.target.value }));
+//         if (e.target.value.trim().length === 0) {
+//             setIsDataFalse({ ...isDataFalse, fname: "" });
+//         } else if (e.target.value.trim().length < 3) {
+//             setIsDataFalse({ ...isDataFalse, fname: <p style={{ color: 'red' }}>First Name Have At least 3 letter</p> });
+//         } else {
+//             setIsDataFalse({ ...isDataFalse, fname: "" });
+//         }
+//     } else if (e.target.id === "lname") {
+//         setCurrentUserData(preValue => ({ ...preValue, lname: e.target.value }));
+//         if (e.target.value.trim().length === 0) {
+//             setIsDataFalse({ ...isDataFalse, lname: "" });
+//         } else if (e.target.value.trim().length < 3) {
+//             setIsDataFalse({ ...isDataFalse, lname: <p style={{ color: 'red' }}>Last Name Have At least 3 letter</p> });
+//         } else {
+//             setIsDataFalse({ ...isDataFalse, lname: "" });
+//         }
+//     } else if (e.target.id === "email") {
+//         setCurrentUserData(preValue => ({ ...preValue, email: e.target.value }));
+//         if (e.target.value.trim().length === 0) {
+//             setIsDataFalse({ ...isDataFalse, email: "" });
+//         } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(e.target.value)) {
+//             setIsDataFalse({ ...isDataFalse, email: <p style={{ color: 'red' }}>Please Enter Valid Email</p> });
+//         } else {
+//             setIsDataFalse({ ...isDataFalse, email: "" });
+//         }
+//     } else if (e.target.id === "password") {
+//         setCurrentUserData(preValue => ({ ...preValue, password: e.target.value }));
+//         if (e.target.value.length === 0) {
+//             setIsDataFalse({ ...isDataFalse, mobile: "" });
+//         } else if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^*&+=_-]).{8,}$/.test(e.target.value)) {
+//             setIsDataFalse({ ...isDataFalse, password: <p style={{ color: 'red' }}>Your password is not strong enough. Please enter atleast one Lowercase , Uppercase , Number , Special character</p> });
+//         } else {
+//             setIsDataFalse({ ...isDataFalse, password: "" });
+//         }
+//     } else if (e.target.id === "mobile") {
+//         setCurrentUserData(preValue => ({ ...preValue, mobile: e.target.value }));
+//         if (e.target.value.trim().length === 0) {
+//             setIsDataFalse({ ...isDataFalse, mobile: "" });
+//         } else if (e.target.value.length < 10 || e.target.value.length > 10) {
+//             setIsDataFalse({ ...isDataFalse, mobile: <p style={{ color: 'red' }}>Mobile Number Have Atleast 10 number</p> });
+//         } else {
+//             setIsDataFalse({ ...isDataFalse, mobile: "" });
+//         }
+//     }
+// }
+
+
+// const checkSetFirstName = (e) => {
+//     setCurrentUserData(preValue => ({ ...preValue, fname: e.target.value }));
+//     if (e.target.value.trim().length === 0) {
+//         setIsDataFalse({ ...isDataFalse, fname: "" });
+//     } else if (e.target.value.trim().length < 3) {
+//         setIsDataFalse({ ...isDataFalse, fname: <p style={{ color: 'red' }}>First Name Have At least 3 letter</p> });
+//     } else {
+//         setIsDataFalse({ ...isDataFalse, fname: "" });
+//     }
+// }
+
+// const checkSetLastName = (e) => {
+//     setCurrentUserData(preValue => ({ ...preValue, lname: e.target.value }));
+//     if (e.target.value.trim().length === 0) {
+//         setIsDataFalse({ ...isDataFalse, lname: "" });
+//     } else if (e.target.value.trim().length < 3) {
+//         setIsDataFalse({ ...isDataFalse, lname: <p style={{ color: 'red' }}>Last Name Have At least 3 letter</p> });
+//     } else {
+//         setIsDataFalse({ ...isDataFalse, lname: "" });
+//     }
+// }
+
+// const checkSetEmail = (e) => {
+//     setCurrentUserData(preValue => ({ ...preValue, email: e.target.value }));
+//     if (e.target.value.trim().length === 0) {
+//         setIsDataFalse({ ...isDataFalse, email: "" });
+//     } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(e.target.value)) {
+//         setIsDataFalse({ ...isDataFalse, email: <p style={{ color: 'red' }}>Please Enter Valid Email</p> });
+//     } else {
+//         setIsDataFalse({ ...isDataFalse, email: "" });
+//     }
+// }
+
+// const checkSetPassword = (e) => {
+//     setCurrentUserData(preValue => ({ ...preValue, password: e.target.value }));
+//     if (e.target.value.trim().length === 0) {
+//         setIsDataFalse({ ...isDataFalse, password: "" });
+//     } else if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^*&+=_-]).{8,}$/.test(e.target.value)) {
+//         setIsDataFalse({ ...isDataFalse, password: <p style={{ color: 'red' }}>Please Include atleast one lowercase,uppercase,number,special character</p> });
+//     } else {
+//         setIsDataFalse({ ...isDataFalse, password: "" });
+//     }
+// }
+
+// const checkSetMobileNumber = (e) => {
+//     setCurrentUserData(preValue => ({ ...preValue, mobile: e.target.value }));
+//     if (e.target.value.trim().length === 0) {
+//         setIsDataFalse({ ...isDataFalse, mobile: "" });
+//     } else if (e.target.value.length < 10 || e.target.value.length > 10) {
+//         setIsDataFalse({ ...isDataFalse, mobile: <p style={{ color: 'red' }}>Mobile Number Have Atleast 10 number</p> });
+//     } else {
+//         setIsDataFalse({ ...isDataFalse, mobile: "" });
+//     }
+// }
