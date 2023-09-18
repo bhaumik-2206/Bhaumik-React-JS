@@ -1,6 +1,6 @@
-export default function Table({ userData, setIsDeleteUser }) {
+export default function Table({ userData, setIsDeleteUser, setIsEditInfo }) {
     const onEdit = (index) => {
-        console.log(userData[index]);
+        setIsEditInfo(userData[index].id);
     }
 
     const onDelete = (index) => {
