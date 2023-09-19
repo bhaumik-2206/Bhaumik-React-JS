@@ -1,4 +1,9 @@
-export default function Table({ userData, setIsDeleteUser, setIsEditInfo }) {
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import React from 'react'
+
+export default function Table({ userData, setIsDeleteUser, setIsEditInfo, lastSaveData }) {
+    dayjs.extend(relativeTime);
     const onEdit = (index) => {
         setIsEditInfo(userData[index].id);
     }
@@ -44,6 +49,11 @@ export default function Table({ userData, setIsDeleteUser, setIsEditInfo }) {
                     </tbody>
                 </table>
             ) : (<h1>No User Exist</h1>)}
+            <div className='bg-primary text-white rounded m-3 fs-5' style={{ position: "fixed", bottom: 0, right: 0 }}>
+                {lastSaveData ?
+                    (<div className='py-2 px-3 '>Last Data Change {lastSaveData.fromNow()}</div>)
+                    : (lastSaveData)}
+            </div>
         </div>
     )
 }

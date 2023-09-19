@@ -47,6 +47,14 @@
       "password": "Bhavik@1234",
       "mobile": "9879465320",
       "id": 6
+    },
+    {
+      "fname": "Ayushi",
+      "lname": "Joshi",
+      "email": "ayushijoshi@gmail.com",
+      "password": "Ayushi@123",
+      "mobile": "7894561230",
+      "id": 7
     }
   ]
 }

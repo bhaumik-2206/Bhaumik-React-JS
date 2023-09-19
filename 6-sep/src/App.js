@@ -233,23 +233,23 @@ import './App.css';
 //   )
 // }
 
-import React from 'react'
-import ChildEvent from './Component/childEvent';
-export default function App() {
-  return (
-    <ChildEvent />
-  )
-}
-
-
-// import MainPage from './CRUD/MainPage';
+// import React from 'react'
+// import ChildEvent from './Component/childEvent';
 // export default function App() {
 //   return (
-//     <div>
-//       <MainPage />
-//     </div>
+//     <ChildEvent />
 //   )
 // }
+
+
+import MainPage from './CRUD/MainPage';
+export default function App() {
+  return (
+    <div>
+      <MainPage />
+    </div>
+  )
+}
 
 
 // import React, { useState, useEffect } from 'react'

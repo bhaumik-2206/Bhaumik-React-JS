@@ -1,9 +1,23 @@
 import Modal from 'react-bootstrap/Modal';
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-export default function ModalUserForm({ show, isEditInfo, isDataFalse, checkSetTheTrueData, currentUserData, addUserInTable, handleClose }) {
+export default function ModalUserForm({ show, isEditInfo, isDataFalse, checkSetTheTrueData, currentUserData, addUserInTable, handleClose, userData }) {
+    const [showPassword, setShowPassword] = useState(false);
+    useEffect(() => {
+        setShowPassword(false);
+    }, [userData]);
+
+    const checkUncheckPass = () => {
+        setShowPassword(!showPassword)
+    }
+
+    function handleCloseInModal() {
+        handleClose();
+        setShowPassword(false);
+    }
+
     return (
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleCloseInModal}>
             <Modal.Header closeButton>
                 <Modal.Title>{isEditInfo !== -1 ? 'Edit User' : 'Add User'}</Modal.Title>
             </Modal.Header>
@@ -24,9 +38,11 @@ export default function ModalUserForm({ show, isEditInfo, isDataFalse, checkSetT
                         <input className='form-control' value={currentUserData.email} onChange={checkSetTheTrueData} type="email" id='email' placeholder='Enter Email' />
                     </div>
                     {isDataFalse.email}
-                    <div className='form-group mb-3'>
+                    <div className='form-group mb-2'>
                         <label htmlFor="password">Password:-</label>
-                        <input className='form-control' value={currentUserData.password} onChange={checkSetTheTrueData} type="password" id='password' placeholder='Enter Password' />
+                        <input className='form-control mb-2' value={currentUserData.password} onChange={checkSetTheTrueData} type={showPassword ? "text" : "password"} id='password' placeholder='Enter Password' />
+                        <input className="form-check-input" type="checkbox" id='shoeHidePassword' checked={showPassword} onChange={checkUncheckPass} />
+                        <label className="ms-1 form-check-label" htmlFor="shoeHidePassword">{showPassword ? "Hide" : "Show"} Password</label>
                     </div>
                     {isDataFalse.password}
                     <div className='form-group mb-3'>

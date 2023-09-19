@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ModalUserForm from './Modal';
 
-export default function AddDataModal({ userData, show, setShow, onAddUser, isEditInfo, setIsEditInfo }) {
+export default function AddDataModal({ userData, show, setShow, onAddUser, isEditInfo, setIsEditInfo, setLastSaveData }) {
     let falseData = { fname: "", lname: "", password: "", mobile: "", email: "" };
     const [currentUserData, setCurrentUserData] = useState({ fname: "", lname: "", email: "", password: "", mobile: "" })
     const [isDataFalse, setIsDataFalse] = useState(falseData);
@@ -72,8 +72,9 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
         e.preventDefault();
         let error = <p style={{ color: 'red' }}>Field Required*</p>
         for (const key in isDataFalse) {
+            // console.log(currentUserData[key]);
             if (currentUserData[key].trim() === "") {
-                setIsDataFalse(preValue => ({ ...preValue, [key]: error }))
+                setIsDataFalse(preValue => ({ ...preValue, [key]: error }));
             }
         }
         // if (currentUserData.fname.trim() === "") {
@@ -99,7 +100,7 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
 
     return (
         <div>
-            <ModalUserForm show={show} isEditInfo={isEditInfo} isDataFalse={isDataFalse} checkSetTheTrueData={checkSetTheTrueData} currentUserData={currentUserData} handleClose={handleClose} addUserInTable={addUserInTable} />
+            <ModalUserForm show={show} isEditInfo={isEditInfo} isDataFalse={isDataFalse} checkSetTheTrueData={checkSetTheTrueData} currentUserData={currentUserData} handleClose={handleClose} addUserInTable={addUserInTable} userData={userData} />
         </div>
     )
 }
@@ -164,7 +165,6 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
 //         setIsDataFalse({ ...isDataFalse, fname: "" });
 //     }
 // }
-
 // const checkSetLastName = (e) => {
 //     setCurrentUserData(preValue => ({ ...preValue, lname: e.target.value }));
 //     if (e.target.value.trim().length === 0) {
@@ -175,7 +175,6 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
 //         setIsDataFalse({ ...isDataFalse, lname: "" });
 //     }
 // }
-
 // const checkSetEmail = (e) => {
 //     setCurrentUserData(preValue => ({ ...preValue, email: e.target.value }));
 //     if (e.target.value.trim().length === 0) {
@@ -186,7 +185,6 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
 //         setIsDataFalse({ ...isDataFalse, email: "" });
 //     }
 // }
-
 // const checkSetPassword = (e) => {
 //     setCurrentUserData(preValue => ({ ...preValue, password: e.target.value }));
 //     if (e.target.value.trim().length === 0) {
@@ -197,7 +195,6 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
 //         setIsDataFalse({ ...isDataFalse, password: "" });
 //     }
 // }
-
 // const checkSetMobileNumber = (e) => {
 //     setCurrentUserData(preValue => ({ ...preValue, mobile: e.target.value }));
 //     if (e.target.value.trim().length === 0) {
