@@ -1,4 +1,3 @@
-import Modal from 'react-bootstrap/Modal';
 export default function Table({ userData, setIsDeleteUser, setIsEditInfo }) {
     const onEdit = (index) => {
         setIsEditInfo(userData[index].id);

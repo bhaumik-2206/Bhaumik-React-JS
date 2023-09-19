@@ -24,7 +24,7 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
         setIsDataFalse(falseData);
     }
 
-    const validationRules = {
+    const validationRulesAndError = {
         fname: {
             min: 3,
             error: 'First Name must have at least 3 letters',
@@ -50,7 +50,7 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
 
     const checkSetTheTrueData = (e) => {
         const { id, value } = e.target;
-        const rule = validationRules[id];
+        const rule = validationRulesAndError[id];
         setCurrentUserData(preValue => ({ ...preValue, [id]: value }));
         // console.log(value.split(" ").filter(Boolean).join("").length)
         if (value.length === 0) {
