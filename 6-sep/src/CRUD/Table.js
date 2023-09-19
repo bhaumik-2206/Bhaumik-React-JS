@@ -1,17 +1,25 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import React from 'react'
+// import React from 'react'
+import { useState } from 'react';
+import DeleteModal from './Delete';
 
 export default function Table({ userData, setIsDeleteUser, setIsEditInfo, lastSaveData }) {
+    const [show, setShow] = useState(false);
+    const [dataToDelete, setDataToDelete] = useState(false);
     dayjs.extend(relativeTime);
+
+    const onDeleteData = () => {
+        setIsDeleteUser(dataToDelete);
+    }
+
     const onEdit = (index) => {
         setIsEditInfo(userData[index].id);
     }
 
     const onDelete = (index) => {
-        if (window.confirm('Are you sure you want to delete!!')) {
-            setIsDeleteUser(userData[index].id);
-        }
+        setShow(true);
+        setDataToDelete(userData[index].id);
     }
 
     return (
@@ -54,6 +62,7 @@ export default function Table({ userData, setIsDeleteUser, setIsEditInfo, lastSa
                     (<div className='py-2 px-3 '>Last Data Change {lastSaveData.fromNow()}</div>)
                     : (lastSaveData)}
             </div>
+            <DeleteModal show={show} setShow={setShow} onDeleteData={onDeleteData} />
         </div>
     )
 }

@@ -242,14 +242,74 @@ import './App.css';
 // }
 
 
-import MainPage from './CRUD/MainPage';
+// import MainPage from './CRUD/MainPage';
+// export default function App() {
+//   return (
+//     <div>
+//       <MainPage />
+//     </div>
+//   )
+// }
+
+
+import React, { useEffect, useState } from 'react'
 export default function App() {
+  const [count, setCount] = useState(10);
+  function Myfunc() {
+    setCount(window.innerWidth)
+  }
+
+
+  // useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     setCount((prevCount) => {
+  //       console.log("first");
+  //       if (prevCount > 0) {
+  //         return prevCount - 1;
+  //       } else if (prevCount === 0) {
+  //         return "Now Count is 0";
+  //       } else {
+  //         clearInterval(interval);
+  //         return prevCount;
+  //       }
+  //     });
+  //   }, 500);
+  // }, []);
+
+
+  // useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     if (count > 0) {
+  //       setCount(count - 1);
+  //     } else if (count === 0) {
+  //       setCount("Now Count is 0");
+  //     } else {
+  //       clearInterval(interval);
+  //     }
+  //   }, 500);
+  //   console.log(count)
+  //   return () => {
+  //     clearInterval(interval)
+  //   };
+  // }, [count])
+
+  // useEffect(() => {
+  //   window.addEventListener('resize', Myfunc);
+  //   return () => {
+  //     window.removeEventListener('resize', Myfunc);
+  //   }
+  // }, [count])
+
+
+
   return (
     <div>
-      <MainPage />
+      <h1>{count}</h1>
     </div>
   )
 }
+
+
 
 
 // import React, { useState, useEffect } from 'react'
