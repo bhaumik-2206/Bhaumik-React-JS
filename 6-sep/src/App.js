@@ -252,59 +252,91 @@ import './App.css';
 // }
 
 
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
+// export default function App() {
+//   const [count, setCount] = useState(10);
+//   // const [change, setChange] = useState(0)
+//   // useEffect(() => {
+//   //   console.log("first");
+//   // }, [count, change])
+
+
+//   // useEffect(() => {
+//   //   let interval = setInterval(() => {
+//   //     setCount((prevCount) => {
+//   //       console.log("first");
+//   //       if (prevCount > 0) {
+//   //         return prevCount - 1;
+//   //       } else if (prevCount === 0) {
+//   //         return "Now Count is 0";
+//   //       } else {
+//   //         clearInterval(interval);
+//   //         return prevCount;
+//   //       }
+//   //     });
+//   //   }, 500);
+//   // }, []);
+
+//   // console.log(count);
+//   // useEffect(() => {
+//   //   let interval = setInterval(() => {
+//   //     if (count > 0) {
+//   //       console.log(count)
+//   //       setCount((pre) => pre - 1);
+//   //     } else if (count === 0) {
+//   //       setCount("Now Count is 0");
+//   //     } else {
+//   //       clearInterval(interval);
+//   //     }
+//   //   }, 1000);
+//   //   return () => {
+//   //     console.log("first")
+//   //     clearInterval(interval)
+//   //   };
+//   // }, [])
+
+
+//   // useEffect(() => {
+//   //   if (count > 0) {
+//   //     setTimeout(() => {
+//   //       setCount(count - 1);
+//   //     }, 500);
+//   //   } else {
+//   //     setCount("Now Count is 0");
+//   //   }
+//   // }, [count])
+
+
+//   // function Myfunc() {
+//   //   setCount(window.innerWidth)
+//   // }
+//   // useEffect(() => {
+//   //   window.addEventListener('resize', Myfunc);
+//   //   return () => {
+//   //     window.removeEventListener('resize', Myfunc);
+//   //   }
+//   // }, [count])
+
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       {/* <button onClick={hadleClick}>CLICK</button>
+//       <button onClick={handleChange}>Change</button> */}
+//     </div>
+//   )
+// }
+
+import React from 'react'
+import UseRef from './Component/UseRef';
+// import Routing from './Component/Routing';
+// import UseContext from './Component/useContext/UseContext';
+
 export default function App() {
-  const [count, setCount] = useState(10);
-  function Myfunc() {
-    setCount(window.innerWidth)
-  }
-
-
-  // useEffect(() => {
-  //   let interval = setInterval(() => {
-  //     setCount((prevCount) => {
-  //       console.log("first");
-  //       if (prevCount > 0) {
-  //         return prevCount - 1;
-  //       } else if (prevCount === 0) {
-  //         return "Now Count is 0";
-  //       } else {
-  //         clearInterval(interval);
-  //         return prevCount;
-  //       }
-  //     });
-  //   }, 500);
-  // }, []);
-
-
-  // useEffect(() => {
-  //   let interval = setInterval(() => {
-  //     if (count > 0) {
-  //       setCount(count - 1);
-  //     } else if (count === 0) {
-  //       setCount("Now Count is 0");
-  //     } else {
-  //       clearInterval(interval);
-  //     }
-  //   }, 500);
-  //   console.log(count)
-  //   return () => {
-  //     clearInterval(interval)
-  //   };
-  // }, [count])
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', Myfunc);
-  //   return () => {
-  //     window.removeEventListener('resize', Myfunc);
-  //   }
-  // }, [count])
-
-
-
   return (
     <div>
-      <h1>{count}</h1>
+      <UseRef data={"HELLO"}/>
+      {/* <Routing /> */}
+      {/* <UseContext /> */}
     </div>
   )
 }

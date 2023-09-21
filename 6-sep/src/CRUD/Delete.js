@@ -12,7 +12,7 @@ function DeleteModal({ show, setShow, onDeleteData }) {
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title>DELETE USER</Modal.Title>
             </Modal.Header>
             <Modal.Body>Are you sure you want to delete the user</Modal.Body>
             <Modal.Footer>
