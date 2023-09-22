@@ -15,13 +15,20 @@ export default function MainPage() {
         if (isEditInfo !== -1) {
             setShow(true);
         }
-    }, [isEditInfo])
+    }, [isEditInfo]);
 
+    // function getDataFromApi() {
+    //     fetch('http://localhost:3400/data')
+    //         .then((response) => response.json())
+    //         .then((data) => setUserData(data));
+    // }
 
     useEffect(() => {
         fetch('http://localhost:3400/data')
             .then((response) => response.json())
-            .then((data) => setUserData(data));
+            .then((data) => setUserData(data))
+            .catch((error) => console.error(error));
+        // getDataFromApi();
     }, []);
 
     const addUserDataForm = () => {
@@ -30,43 +37,57 @@ export default function MainPage() {
 
     const handleAddUser = async (modalData) => {
         if (isEditInfo !== -1) {
-            let responseEdited = await fetch(`http://localhost:3400/data/${isEditInfo}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(modalData),
-            })
-            let answerEdited = await responseEdited.json();
-            let editTheData = [...userData];
-            let storVar = editTheData.map(ele => ele.id === isEditInfo ? answerEdited : ele);
-            setUserData(storVar);
-            setIsEditInfo(-1);
-            setLastSaveData(dayjs());
+            try {
+                let responseEdited = await fetch(`http://localhost:3400/data/${isEditInfo}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(modalData),
+                })
+                // getDataFromApi();
+                let answerEdited = await responseEdited.json();
+                let editTheData = [...userData];
+                let storVar = editTheData.map(ele => ele.id === isEditInfo ? answerEdited : ele);
+                setUserData(storVar);
+                setIsEditInfo(-1);
+                setLastSaveData(dayjs());
+            } catch (error) {
+                console.log("ERROR: " + error);
+            }
         } else {
-            let responseAddUser = await fetch('http://localhost:3400/data', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(modalData),
-            })
-            let answerNewUser = await responseAddUser.json();
-            setUserData((preData) => [...preData, answerNewUser]);
-            setLastSaveData(dayjs());
+            try {
+                await fetch('http://localhost:3400/data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(modalData),
+                })
+                // getDataFromApi();
+                let answerNewUser = await responseAddUser.json();
+                setUserData((preData) => [...preData, answerNewUser]);
+                setLastSaveData(dayjs());
+            } catch (error) {
+                console.log("ERROR: " + error);
+            }
         }
         // console.log(modalData)
     };
-    const setIsDeleteUser = (id) => {
-        fetch(`http://localhost:3400/data/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => setUserData(prevData => prevData.filter(item => item.id !== id)));
-        setLastSaveData(dayjs());
+    const setIsDeleteUser = async (id) => {
+        try {
+            let res = await fetch(`http://localhost:3400/data/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            // getDataFromApi();
+            setUserData(prevData => prevData.filter(item => item.id !== id));
+            setLastSaveData(dayjs());
+        } catch (error) {
+            console.log("ERROR: " + error);
+        }
     }
 
     return (

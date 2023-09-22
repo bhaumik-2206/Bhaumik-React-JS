@@ -252,6 +252,27 @@ import './App.css';
 // }
 
 
+
+import React from 'react'
+// import UseRef from './Component/UseRef';
+// import Routing from './Component/Routing';
+import UseContext from './Component/useContext/UseContext';
+import Contaxt1 from './Component/useContext/contaxt1';
+import Context2 from './Component/useContext/context2';
+
+export default function App() {
+  return (
+    <div>
+      {/* <UseRef data={"HELLO"} /> */}
+      {/* <Routing /> */}
+      {/* <UseContext /> */}
+      {/* <Contaxt1 /> */}
+      <Context2 />
+    </div>
+  )
+}
+
+
 // import React, { useEffect, useState } from 'react'
 // export default function App() {
 //   const [count, setCount] = useState(10);
@@ -326,20 +347,6 @@ import './App.css';
 //   )
 // }
 
-import React from 'react'
-import UseRef from './Component/UseRef';
-// import Routing from './Component/Routing';
-// import UseContext from './Component/useContext/UseContext';
-
-export default function App() {
-  return (
-    <div>
-      <UseRef data={"HELLO"}/>
-      {/* <Routing /> */}
-      {/* <UseContext /> */}
-    </div>
-  )
-}
 
 
 

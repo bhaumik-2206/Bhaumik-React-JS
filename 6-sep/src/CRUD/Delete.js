@@ -1,13 +1,21 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-function DeleteModal({ show, setShow, onDeleteData }) {
+function DeleteModal({ show, setShow, onDeleteData, dataToDelete, setDataToDelete }) {
     const handleClose = () => {
         setShow(false);
     }
 
-    const handleDelete = () => {
+    const handleDelete = async () => {
         setShow(false);
-        onDeleteData();
+        try {
+            let res = await fetch(`http://localhost:3400/data/${dataToDelete}`);
+            if (res.ok) {
+                onDeleteData();
+            }
+        } catch (error) {
+            setDataToDelete(-1);
+            console.log("ERROR : " + error);
+        }
     }
     return (
         <Modal show={show} onHide={handleClose}>

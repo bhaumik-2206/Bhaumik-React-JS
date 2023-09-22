@@ -52,17 +52,9 @@
       "fname": "Ayushi",
       "lname": "Joshi",
       "email": "ayushijoshi@gmail.com",
-      "password": "Ayushi@123",
-      "mobile": "7894561230",
+      "password": "Ayushi@1234",
+      "mobile": "9879465320",
       "id": 7
-    },
-    {
-      "fname": "Bhaumik",
-      "lname": "Panchal",
-      "email": "bhaumikpanchal2206@gmail.com",
-      "password": "hhHH88**",
-      "mobile": "0942961373",
-      "id": 8
     }
   ]
 }

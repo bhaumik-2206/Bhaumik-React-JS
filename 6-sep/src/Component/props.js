@@ -6,6 +6,9 @@
 // }
 // export default Properties;
 
+import { useState } from "react";
+import { useEffect } from "react";
+
 
 // import React from 'react';
 // function ChildComponent({ sendDataToParent }) {
@@ -78,23 +81,93 @@
 // export default ParentComponent;
 
 
-import PropTypes from 'prop-types'
-export default function AddPropTypes(props) {
-    return (
-        <div>
-            <span>{props.title}</span>&emsp;
-            <span>{props.array.join("-")}</span>&emsp;
-            <span>{props.name.name}</span>&emsp;
-        </div>
-    )
-}
-AddPropTypes.propTypes = {
-    title: PropTypes.string.isRequired,        //  we can add .isRequired to required the props
-    array: PropTypes.array.isRequired,
-    name: PropTypes.object.isRequired,
-}
-AddPropTypes.defaultProps = {
-    title: "Hello",
-    array: [6, 7, 8, 9, 10],
-    name: { name: "Vivek" },
-}
+// import PropTypes from 'prop-types'
+// export default function AddPropTypes(props) {
+//     return (
+//         <div>
+//             <span>{props.title}</span>&emsp;
+//             <span>{props.array.join("-")}</span>&emsp;
+//             <span>{props.name.name}</span>&emsp;
+//         </div>
+//     )
+// }
+// AddPropTypes.propTypes = {
+//     title: PropTypes.string.isRequired,        //  we can add .isRequired to required the props
+//     array: PropTypes.array.isRequired,
+//     name: PropTypes.object.isRequired,
+// }
+// AddPropTypes.defaultProps = {
+//     title: "Hello",
+//     array: [6, 7, 8, 9, 10],
+//     name: { name: "Vivek" },
+// }
+
+
+// import React, { useEffect } from 'react';
+// import { useState } from 'react'
+// export default function Props({ propsRef }) {
+//     // const [change, setChange] = useState(null)
+//     useEffect(() => {
+//         //     setChange(propsRef.current.value);
+//         //     console.log(change);
+//         console.log(propsRef)
+//     });
+//     return (
+//         <div>
+//             {/* <div>{propsRef.current.value}</div> */}
+//         </div>
+//     )
+// }
+
+
+// import React, { useRef } from 'react';
+// function Props({ onChildDataChange }) {
+//     const childRef = useRef();
+//     const handleChange = () => {
+//         const childData = childRef.current.value;
+//         onChildDataChange(childData);
+//     };
+//     return (
+//         <div>
+//             <input ref={childRef} type="text" onChange={handleChange} />
+//         </div>
+//     );
+// }
+// export default Props;
+
+// function Props({ dataFromParent }) {
+//     const handleClick = () => {
+//         if (dataFromParent.current) {
+//             dataFromParent.current.focus();
+//         }
+//     };
+//     return (
+//         <>
+//             <button onClick={handleClick}>Focus on Input</button>
+//         </>
+//     );
+// }
+// export default Props;
+
+// import React, { useRef } from 'react';
+// export default function Props({ inputValueRef }) {
+//     return (
+//         <div>
+//             <p>Child Component:</p>
+//             <p>Input Value: {inputValueRef.current}</p>
+//         </div>
+//     );
+// }
+
+// function ChildComponent({ childRef }) {
+//     // useEffect(() => {
+//     //     console.log('Data in Child:', childRef.current);
+//     // });
+//     return (
+//         <div>
+//             <h2>Child Component</h2>
+//             <div>Data in Child: {childRef.current}</div>
+//         </div>
+//     );
+// }
+// export default ChildComponent;

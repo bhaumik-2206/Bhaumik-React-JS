@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import Props from './props';
 // export default function UseRef() {
 
 //     // const firstInput = useRef();
@@ -46,7 +47,7 @@ import React, { useRef, useState, useEffect } from 'react'
 // }
 
 
-// set Condition in depemdency
+// // set Condition in depemdency
 // export default function UseRef() {
 //     const [count, setCount] = useState(0);
 //     useEffect(() => {
@@ -66,10 +67,13 @@ import React, { useRef, useState, useEffect } from 'react'
 //     )
 // }
 
-// log of useRef
+// // log of useRef
 // export default function UseRef() {
 //     const myRef = useRef();
 //     console.log(myRef.current);
+//     useEffect(() => {
+//         console.log(myRef.current);
+//     });
 //     return (
 //         <div>
 //             <h1 ref={myRef}>HELLO WORLD</h1>
@@ -78,7 +82,7 @@ import React, { useRef, useState, useEffect } from 'react'
 // }
 
 
-// Check Return Function Run
+// // Check Return Function Run
 // export default function UseRef() {
 //     const [show, setShow] = useState(false);
 //     useEffect(() => {
@@ -98,7 +102,7 @@ import React, { useRef, useState, useEffect } from 'react'
 //     )
 // }
 
-// Push element with useRef
+// // Push element with useRef
 // export default function UseRef() {
 //     const ref = useRef([]);
 //     ref.current.push(1)
@@ -229,15 +233,170 @@ import React, { useRef, useState, useEffect } from 'react'
 //     )
 // }
 
-export default function UseRef() {
-    const myRef = useRef()
-    console.log(myRef)
+// export default function UseRef() {
+//     const [show, setShow] = useState(false)
+//     const myRef = useRef();
+//     useEffect(() => {
+//         console.log(myRef)
+//     });
+//     return (
+//         <div>
+//             {show && <input type="text" ref={myRef} />}
+//             <button onClick={() => setShow(true)}>CLICK 1</button>
+//             <button onClick={() => setShow(false)}>CLICK 2</button>
+//         </div>
+//     )
+// }
+
+// export default function UseRef() {
+//     const myRef = useRef([10, 20, 30]);
+//     const second = useRef()
+//     return (
+//         <div>
+//             <input type="text" ref={second} />
+//             <Props propsRef={second} />
+//         </div>
+//     )
+// }
+
+// const UseRef = () => {
+//     const myRef = useRef(10);
+//     return (
+//         <div>
+//             <Props propsRef={myRef} />
+//         </div>
+//     )
+// }
+// export default UseRef
+
+
+// function UserRef() {
+//     const [data, setData] = useState('');
+//     const handleChildDataChange = (data) => {
+//         setData(data);
+//     };
+//     return (
+//         <div>
+//             <h1>Data from Child: {data}</h1>
+//             <Props onChildDataChange={handleChildDataChange} />
+//         </div>
+//     );
+// }
+// export default UserRef;
+
+// function UseRef() {
+//     const data = 'Data from Parent';
+//     const inp = useRef();
+//     return (
+//         <div>
+//             <input type="text" ref={inp} />
+//             <Props dataFromParent={inp} />
+//         </div>
+//     );
+// }
+// export default UseRef;
+
+// function UseRef() {
+//     const inputValueRef = useRef('');
+//     const handleInputChange = (e) => {
+//         inputValueRef.current = e.target.value;
+//     };
+//     return (
+//         <div>
+//             <p>Parent Component:</p>
+//             <input type="text" onChange={handleInputChange} placeholder="Enter text" />
+//             <Props inputValueRef={inputValueRef} />
+//         </div>
+//     );
+// }
+// export default UseRef;
+
+// function UseRef() {
+//     const [input, setInput] = useState('');
+//     const childRef = useRef(null);
+//     const handleChange = (e) => {
+//         setInput(e.target.value);
+//         childRef.current = e.target.value;
+//     };
+//     return (
+//         <div>
+//             <h1>Parent Component</h1>
+//             <input type="text" value={input} onChange={handleChange} />
+//             <Props childRef={childRef} />
+//         </div>
+//     );
+// }
+// export default UseRef;
+
+// export default function UseRef() {
+//     const myRef = useRef()
+//     useEffect(() => {
+//         console.log(myRef.current)
+//     });
+//     return (
+//         <div>
+//             <input type="text" ref={myRef} />
+//             <input type="number" ref={myRef} />
+//             <input type="date" ref={myRef} />
+//         </div>
+//     )
+// }
+
+// export default function UseRef() {
+//     const [count, setCount] = useState(10);
+//     console.log("first")
+//     useEffect(() => {
+//         let clear = setInterval(() => {
+//             console.log(count)
+//             if (count > 0) {
+//                 setCount(count - 1);
+//             }
+//         }, 500);
+//         // return () => console.log("first");
+//         return () => clearInterval(clear);
+//     }, []);
+//     // const handleClick = () => {
+//     //     setCount(count + 1);
+//     // }
+//     return (
+//         <div>
+//             <h1>{count}</h1>
+//             {/* <button onClick={handleClick}>CLICK</button> */}
+//         </div>
+//     )
+// }
+
+// export default function UseRef() {
+//     const myRef = useRef(new Date())
+//     console.log(myRef)
+//     return (
+//         <div></div>
+//     )
+// }
+
+// export default function UseRef() {
+//     const myRef = useRef(0);
+//     const [count, setCount] = useState(0);
+//     console.log(myRef);
+//     console.log(count);
+//     return (
+//         <div>
+//             <h1>Ref:{myRef.current}</h1>
+//             <h1>State:{count}</h1>
+//             <button onClick={() => myRef.current++}>CLICK CHANGE REF</button>
+//             <button onClick={() => setCount(count + 1)}>CLICK CHANGE STATE</button>
+//         </div>
+//     )
+// }
+
+const UseRef = () => {
     return (
-        <div>
-            { }
-        </div>
+        <div></div>
     )
 }
+export default UseRef;
+
+
 
 
 

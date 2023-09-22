@@ -6,11 +6,13 @@ import DeleteModal from './Delete';
 
 export default function Table({ userData, setIsDeleteUser, setIsEditInfo, lastSaveData }) {
     const [show, setShow] = useState(false);
-    const [dataToDelete, setDataToDelete] = useState(false);
+    // const [dataToDelete, setDataToDelete] = useState(false);
+    const [dataToDelete, setDataToDelete] = useState(-1);
     dayjs.extend(relativeTime);
 
     const onDeleteData = () => {
-        setIsDeleteUser(dataToDelete);
+        setIsDeleteUser(dataToDelete)
+        // dataToDelete !== -1 ? setIsDeleteUser(dataToDelete) : false;
     }
 
     const onEdit = (index) => {
@@ -19,6 +21,7 @@ export default function Table({ userData, setIsDeleteUser, setIsEditInfo, lastSa
 
     const onDelete = (index) => {
         setShow(true);
+        // setDataToDelete(userData[index].id);
         setDataToDelete(userData[index].id);
     }
 
@@ -62,7 +65,7 @@ export default function Table({ userData, setIsDeleteUser, setIsEditInfo, lastSa
                     (<div className='py-2 px-3 '>Last Data Change {lastSaveData.fromNow()}</div>)
                     : (lastSaveData)}
             </div>
-            <DeleteModal show={show} setShow={setShow} onDeleteData={onDeleteData} />
+            <DeleteModal show={show} setShow={setShow} onDeleteData={onDeleteData} dataToDelete={dataToDelete} setDataToDelete={setDataToDelete} />
         </div>
     )
 }
