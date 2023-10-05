@@ -254,20 +254,24 @@ import './App.css';
 
 
 import React from 'react'
-// import UseRef from './Component/UseRef';
-// import Routing from './Component/Routing';
+import UseRef from './Component/UseRef';
+import Routing from './Component/Routing';
 import UseContext from './Component/useContext/UseContext';
 import Contaxt1 from './Component/useContext/contaxt1';
 import Context2 from './Component/useContext/context2';
+import Context3 from './Component/useContext/context3';
+import Btn from './Component/useContext/Btn';
 
 export default function App() {
   return (
     <div>
       {/* <UseRef data={"HELLO"} /> */}
-      {/* <Routing /> */}
+      <Routing />
       {/* <UseContext /> */}
       {/* <Contaxt1 /> */}
-      <Context2 />
+      {/* <Context2 /> */}
+      {/* <Context3 /> */}
+      {/* <Btn /> */}
     </div>
   )
 }

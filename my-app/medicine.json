@@ -1,0 +1,44 @@
+{
+  "addMedicine": [
+    {
+      "id": 1,
+      "medicineName": "dolo",
+      "quantity": "10",
+      "pack": "Pack-1",
+      "expiryDate": "2023-10-05",
+      "batch": "A1"
+    },
+    {
+      "medicineName": "Paracetamol",
+      "quantity": "50000",
+      "pack": "Pack-2",
+      "expiryDate": "2023-09-21",
+      "batch": "A1",
+      "id": 2
+    }
+  ],
+  "addRecord": [
+    {
+      "medicineName": "dolo",
+      "quantity": "",
+      "selectedItem": "",
+      "id": 1
+    }
+  ],
+  "addOutRecord": [],
+  "crud": [
+    {
+      "id": 1,
+      "name": "fecfrgvbftg",
+      "email": "frdfc",
+      "phone": "rdfcrd"
+    },
+    {
+      "name": "Bhaumik Panchal",
+      "email": "bhaumikpanchal2206@gmail.com",
+      "phone": "09429613731",
+      "active": true,
+      "id": 2
+    }
+  ]
+}

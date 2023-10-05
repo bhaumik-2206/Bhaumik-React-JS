@@ -8,7 +8,7 @@ function DeleteModal({ show, setShow, onDeleteData, dataToDelete, setDataToDelet
     const handleDelete = async () => {
         setShow(false);
         try {
-            let res = await fetch(`http://localhost:3400/data/${dataToDelete}`);
+            let res = await fetch(`http://localhost:3401/data/${dataToDelete}`);
             if (res.ok) {
                 onDeleteData();
             }

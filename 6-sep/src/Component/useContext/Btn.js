@@ -65,6 +65,51 @@
 // export default ChildComponent;
 
 
+// import React, { useContext } from 'react'
+// import { myContext, updateContext } from './contaxt1'
+
+// const Btn = () => {
+//     const value = useContext(myContext);
+//     const updateChange = useContext(updateContext);
+//     return (
+//         <>
+//             <button onClick={updateChange}>CLICK</button>
+//             <h1>{value ? "HELLO" : "WORLD"}</h1>
+//         </>
+//     )
+// }
+// export default Btn;
 
 
+// import React, { useContext } from 'react'
+// import context from './contaxt1';
+// const Btn = () => {
+//     let { count, update } = useContext(context);
+//     return (
+//         <div>
+//             <h1>{count}</h1>
+//             <button className='btn btn-primary' onClick={update}>CLICK</button>
+//         </div>
+//     )
+// }
+// export default Btn;
 
+
+import React, { useContext } from 'react'
+import Context3, { NewContext } from './context3'
+
+const Btn = () => {
+    return (
+        <div>
+            <Context3>
+                <NewComponent />
+            </Context3>
+        </div>
+    )
+}
+export default Btn;
+function NewComponent() {
+    let a = useContext(NewContext);
+    console.log(a);
+    return <h1>{a.name}</h1>
+}

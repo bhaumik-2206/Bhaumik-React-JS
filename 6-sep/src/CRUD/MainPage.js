@@ -18,13 +18,13 @@ export default function MainPage() {
     }, [isEditInfo]);
 
     // function getDataFromApi() {
-    //     fetch('http://localhost:3400/data')
+    //     fetch('http://localhost:3401/data')
     //         .then((response) => response.json())
     //         .then((data) => setUserData(data));
     // }
 
     useEffect(() => {
-        fetch('http://localhost:3400/data')
+        fetch('http://localhost:3401/data')
             .then((response) => response.json())
             .then((data) => setUserData(data))
             .catch((error) => console.error(error));
@@ -38,7 +38,7 @@ export default function MainPage() {
     const handleAddUser = async (modalData) => {
         if (isEditInfo !== -1) {
             try {
-                let responseEdited = await fetch(`http://localhost:3400/data/${isEditInfo}`, {
+                let responseEdited = await fetch(`http://localhost:3401/data/${isEditInfo}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export default function MainPage() {
             }
         } else {
             try {
-                await fetch('http://localhost:3400/data', {
+                let responseAddUser = await fetch('http://localhost:3401/data', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ export default function MainPage() {
     };
     const setIsDeleteUser = async (id) => {
         try {
-            let res = await fetch(`http://localhost:3400/data/${id}`, {
+            let res = await fetch(`http://localhost:3401/data/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

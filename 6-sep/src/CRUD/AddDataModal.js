@@ -8,7 +8,7 @@ export default function AddDataModal({ userData, show, setShow, onAddUser, isEdi
 
     useEffect(() => {
         if (isEditInfo !== -1) {
-            fetch('http://localhost:3400/data')
+            fetch('http://localhost:3401/data')
                 .then((response) => response.json())
                 .then((data) => {
                     let editedData = data.find(ele => ele.id === isEditInfo);
