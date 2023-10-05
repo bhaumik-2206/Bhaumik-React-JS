@@ -57,12 +57,24 @@ import './App.css';
 
 
 import React from 'react'
-import UseMemo from './Hooks/UseMemo/UseMemo';
+import UseReducer from './Hooks/UseReducer/UseReducer';
+import Reducer from './Hooks/UseReducer/Reducer';
+// import ChildContext1 from './Hooks/UseContext/ChildContext1';
+// import UseContext from './Hooks/UseContext/UseContext';
+// import UseMemo from './Hooks/UseMemo/UseMemo';
+// import UseCallBack from './Hooks/UseCallBack/UseCallBack';
+
 
 const App = () => {
   return (
     <div>
-      <UseMemo data={1} />
+      {/* <UseMemo data={1} /> */}
+      {/* <UseCallBack /> */}
+      {/* <UseContext /> */}
+      {/* <ChildContext1 /> */}
+
+      <UseReducer />
+      <Reducer />
     </div>
   )
 }
