@@ -23,9 +23,22 @@
       "quantity": "",
       "selectedItem": "",
       "id": 1
+    },
+    {
+      "medicineName": "dolo",
+      "quantity": "1212",
+      "selectedItem": "1",
+      "id": 2
     }
   ],
-  "addOutRecord": [],
+  "addOutRecord": [
+    {
+      "medicineName": "dolo",
+      "quantity": "123",
+      "selectedItem": "",
+      "id": 1
+    }
+  ],
   "crud": [
     {
       "id": 1,
@@ -41,36 +54,38 @@
       "id": 2
     }
   ],
-  "userCRUD": [
+  "userData": [
     {
       "id": 1,
       "fname": "Bhaumik",
       "lname": "Panchal",
-      "age": "20"
+      "email": "bhaumik@gmail.com",
+      "mobile": 987654321,
+      "password": "Bhaumik@1234"
     },
     {
       "id": 2,
-      "fname": "Raj",
-      "lname": "Bundela",
-      "age": "20"
+      "fname": "Riddhi",
+      "lname": "Prajapati",
+      "email": "bhaumik@gmail.com",
+      "mobile": 987654321,
+      "password": "Bhaumik@1234"
     },
     {
       "id": 3,
-      "fname": "Riddhi",
-      "lname": "Prajapati",
-      "age": "20"
+      "fname": "Raj",
+      "lname": "Bundela",
+      "email": "bhaumik@gmail.com",
+      "mobile": 987654321,
+      "password": "Bhaumik@1234"
     },
     {
       "id": 4,
       "fname": "Vivek",
       "lname": "Panchal",
-      "age": "20"
-    },
-    {
-      "id": 5,
-      "fname": "Ayushi",
-      "lname": "Joshi",
-      "age": "20"
+      "email": "bhaumik@gmail.com",
+      "mobile": 987654321,
+      "password": "Bhaumik@1234"
     }
   ]
 }

@@ -38,7 +38,7 @@ const LogIn = () => {
         }
     })
 
-    console.log(formik.errors);
+    // console.log(formik.errors);
     return (
         <div className='w-5/12 bg-gray-0 m-auto text-center rounded-2xl p-10 fixed top-1/2 left-1/2 -translate-y-2/4 -translate-x-2/4 border-2 bg-gray-100'>
             <form onSubmit={formik.handleSubmit}>

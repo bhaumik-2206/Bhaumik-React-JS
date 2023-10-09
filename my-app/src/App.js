@@ -1,4 +1,18 @@
 import './App.css';
+import React from 'react'
+import MainPage from "./Assessment CRUD/MainPage"
+const App = () => {
+  return (
+    <div>
+      <MainPage />
+    </div>
+  )
+}
+export default App;
+
+
+
+
 // import Routing1 from './Routing/Routing1';
 // function App() {
 //   return (
@@ -81,38 +95,25 @@ import './App.css';
 //     </div>
 //   )
 // }
-
 // export default App
 
 
-
-
 // import React from 'react'
-// import LogIn from './Project/LogIn';
+// import MainPage from './CRUD/MainPage';
+// // import LogIn from './Project/LogIn';
+// // import RegistrationForm from './Project/RegistrationForm';
 
 // const App = () => {
 //   return (
 //     <div>
-//       <LogIn />
+//       {/* <MainPage /> */}
+//       {/* <LogIn /> */}
+//       {/* <RegistrationForm /> */}
 //     </div>
 //   )
 // }
 
 // export default App
-
-
-import React from 'react'
-import MainPage from './CRUD/MainPage';
-
-const App = () => {
-  return (
-    <div>
-      <MainPage />
-    </div>
-  )
-}
-
-export default App
 
 
 
