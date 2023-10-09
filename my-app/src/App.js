@@ -56,31 +56,63 @@ import './App.css';
 // export default App;
 
 
-import React from 'react'
-import UseReducer from './Hooks/UseReducer/UseReducer';
-import Reducer from './Hooks/UseReducer/Reducer';
+// import React from 'react'
+// import UseReducer from './Hooks/UseReducer/UseReducer';
+// import Reducer from './Hooks/UseReducer/Reducer';
+// import Context1 from './Hooks/UseContext/Context1';
 // import ChildContext1 from './Hooks/UseContext/ChildContext1';
 // import UseContext from './Hooks/UseContext/UseContext';
 // import UseMemo from './Hooks/UseMemo/UseMemo';
 // import UseCallBack from './Hooks/UseCallBack/UseCallBack';
 
 
+// const App = () => {
+//   return (
+//     <div>
+//       {/* <UseMemo data={1} /> */}
+//       {/* <UseCallBack /> */}
+
+//       {/* <UseContext /> */}
+//       {/* <ChildContext1 /> */}
+//       <Context1 />
+
+//       <UseReducer />
+//       <Reducer />
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+// import React from 'react'
+// import LogIn from './Project/LogIn';
+
+// const App = () => {
+//   return (
+//     <div>
+//       <LogIn />
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+import React from 'react'
+import MainPage from './CRUD/MainPage';
+
 const App = () => {
   return (
     <div>
-      {/* <UseMemo data={1} /> */}
-      {/* <UseCallBack /> */}
-      {/* <UseContext /> */}
-      {/* <ChildContext1 /> */}
-
-      <UseReducer />
-      <Reducer />
+      <MainPage />
     </div>
   )
 }
 
 export default App
-
 
 
 
