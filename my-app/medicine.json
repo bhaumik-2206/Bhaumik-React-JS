@@ -42,16 +42,17 @@
   "crud": [
     {
       "id": 1,
-      "name": "fecfrgvbftg",
-      "email": "frdfc",
-      "phone": "rdfcrd"
+      "fname": "Bhaumik",
+      "lname": "Panchal",
+      "email": "bhaumik@gmail.com",
+      "mobile": 987654321,
+      "password": "Bhaumik@1234"
     },
     {
+      "id": 2,
       "name": "Bhaumik Panchal",
       "email": "bhaumikpanchal2206@gmail.com",
-      "phone": "09429613731",
-      "active": true,
-      "id": 2
+      "phone": "09429613731"
     }
   ],
   "userData": [

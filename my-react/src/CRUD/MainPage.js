@@ -1,26 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Link, Route } from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import PrintData from './PrintData'
 import Form from './Form'
-import UserTable from './UserTable'
+import EditUser from './EditUser'
 
 const MainPage = () => {
-    const [userData, setUserData] = useState([]);
-
-    useEffect(async () => {
-        let a = await fetch("http://localhost:3400/userData");
-        let b = a.json();
-        console.log(b)
-        setUserData(b);
-    }, [])
-
     return (
-        <BrowserRouter>
-            <Link to="details">Add User</Link>
-            <Routes>
-                <Route path="/" element={<UserTable />} />
-                <Route path="/details" element={<Form data={userData} />} />
-            </Routes>
-        </BrowserRouter>
+        <div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<PrintData />} />
+                    <Route path="/addData" element={<Form />} />
+                    <Route path='edit/:editedData' element={<EditUser />} />
+                </Routes>
+            </BrowserRouter>
+        </div>
     )
 }
 

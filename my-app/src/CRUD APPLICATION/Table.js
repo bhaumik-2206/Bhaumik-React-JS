@@ -1,7 +1,8 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const PrintTable = ({ userData }) => {
+const Table = ({ userData }) => {
+    console.log(userData)
     let navigate = useNavigate();
     const handleEdit = (data) => {
         navigate("edit/" + data.id);
@@ -47,4 +48,4 @@ const PrintTable = ({ userData }) => {
     )
 }
 
-export default PrintTable
+export default Table

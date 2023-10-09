@@ -1,55 +1,55 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Form = ({ setUserData, getData, isEdit, setIsEdit }) => {
-    const [currentData, setCurrentData] = useState({ fname: "", lname: "", email: "", mobile: "", password: "" });
-    const navigate = useNavigate();
+const Form = ({ handleSubmit, currentData }) => {
+    // const [currentData, setCurrentData] = useState({ fname: "", lname: "", email: "", mobile: "", password: "" });
+    // const navigate = useNavigate();
+    // console.log(currentData)
 
-
-    useEffect(() => {
-        if (isEdit !== -1) {
-            console.log(isEdit)
-            setCurrentData(isEdit)
-        }
-    }, [isEdit])
+    // useEffect(() => {
+    //     if (isEdit !== -1) {
+    //         console.log(isEdit)
+    //         setCurrentData(isEdit)
+    //     }
+    // }, [isEdit])
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setCurrentData(pre => ({ ...pre, [name]: value }));
+        //     const { name, value } = e.target;
+        //     setCurrentData(pre => ({ ...pre, [name]: value }));
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (isEdit !== -1) {
-            try {
-                await fetch(`http://localhost:3400/userData/${isEdit.id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(currentData),
-                });
-            } catch (error) {
-                console.log("ERROR: " + error)
-            }
-            setIsEdit(-1);
-        } else {
-            try {
-                await fetch("http://localhost:3400/userData", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(currentData),
-                });
-            } catch (error) {
-                console.log("ERROR: " + error)
-            }
-        }
-        setCurrentData({ fname: "", lname: "", email: "", mobile: "", password: "" });
-        navigate("/");
-        getData();
-    }
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     if (isEdit !== -1) {
+    //         try {
+    //             await fetch(`http://localhost:3400/userData/${isEdit.id}`, {
+    //                 method: 'PUT',
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 body: JSON.stringify(currentData),
+    //             });
+    //         } catch (error) {
+    //             console.log("ERROR: " + error)
+    //         }
+    //         setIsEdit(-1);
+    //     } else {
+    //         try {
+    //             await fetch("http://localhost:3400/userData", {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 body: JSON.stringify(currentData),
+    //             });
+    //         } catch (error) {
+    //             console.log("ERROR: " + error)
+    //         }
+    //     }
+    //     setCurrentData({ fname: "", lname: "", email: "", mobile: "", password: "" });
+    //     navigate("/");
+    //     getData();
+    // }
 
     return (
         <form action="" onSubmit={handleSubmit}>

@@ -1,12 +1,20 @@
 {
-    "userData": [
-        {
-            "id": 1,
-            "fname": "Bhaumik",
-            "lname": "Panchal",
-            "email": "bhaumik@gmail.com",
-            "mobile": 987654321,
-            "password": "Bhaumik@1234"
-        }
-    ]
+  "userData": [
+    {
+      "id": 1,
+      "fname": "Bhaumik",
+      "lname": "Panchal",
+      "email": "bhaumik@gmail.com",
+      "mobile": 987654321,
+      "password": "Bhaumik@1234"
+    },
+    {
+      "fname": "Riddhi",
+      "lname": "Prajapati",
+      "mobile": "798654312",
+      "email": "riddhi@gmail.com",
+      "password": "rgf",
+      "id": 2
+    }
+  ]
 }

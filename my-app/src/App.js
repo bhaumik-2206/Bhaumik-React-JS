@@ -1,14 +1,14 @@
-import './App.css';
-import React from 'react'
-import MainPage from "./Assessment CRUD/MainPage"
-const App = () => {
-  return (
-    <div>
-      <MainPage />
-    </div>
-  )
-}
-export default App;
+// import './App.css';
+// import React from 'react'
+// import MainPage from "./Assessment CRUD/MainPage"
+// const App = () => {
+//   return (
+//     <div>
+//       <MainPage />
+//     </div>
+//   )
+// }
+// export default App;
 
 
 
@@ -121,28 +121,38 @@ export default App;
 
 
 
-
-
-
 // import './App.css';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom'
-// import EmpListing from './EmployeeCrud/EmpListing';
-// import EmpCreate from './EmployeeCrud/EmpCreate';
-// import EmpDetail from './EmployeeCrud/EmpDetail';
-// import EmpEdit from './EmployeeCrud/EmpEdit';
-// function App() {
+// import React from 'react'
+// import MainPage from "./CRUD APPLICATION/MainPage"
+// const App = () => {
 //   return (
-//     <div className="App">
-//       <h1>React JS CRUD Opertations</h1>
-//       <BrowserRouter>
-//         <Routes>
-//           <Route path='/' element={<EmpListing />}></Route>
-//           <Route path='/employee/create' element={<EmpCreate />}></Route>
-//           <Route path='/employee/detail/:empid' element={<EmpDetail />}></Route>
-//           <Route path='/employee/edit/:empid' element={<EmpEdit />}></Route>
-//         </Routes>
-//       </BrowserRouter>
+//     <div>
+//       <MainPage />
 //     </div>
-//   );
+//   )
 // }
 // export default App;
+
+
+import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import EmpListing from './EmployeeCrud/EmpListing';
+import EmpCreate from './EmployeeCrud/EmpCreate';
+import EmpDetail from './EmployeeCrud/EmpDetail';
+import EmpEdit from './EmployeeCrud/EmpEdit';
+function App() {
+  return (
+    <div className="App">
+      <h1>React JS CRUD Opertations</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<EmpListing />}></Route>
+          <Route path='/employee/create' element={<EmpCreate />}></Route>
+          <Route path='/employee/detail/:empid' element={<EmpDetail />}></Route>
+          <Route path='/employee/edit/:empid' element={<EmpEdit />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+export default App;

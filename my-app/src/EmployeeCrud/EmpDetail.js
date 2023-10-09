@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 
 const EmpDetail = () => {
     const { empid } = useParams();
-
     const [empdata, empdatachange] = useState({});
 
     useEffect(() => {

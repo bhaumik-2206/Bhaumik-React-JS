@@ -1,14 +1,34 @@
 import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const PrintTable = ({ userData }) => {
+const Table = ({ userData, setUserData }) => {
+
     let navigate = useNavigate();
     const handleEdit = (data) => {
-        navigate("edit/" + data.id);
+        navigate(`edit/${data.id}`);
     }
 
-    const handleDelete = () => {
+    const handleDelete = async (id) => {
+        if (window.confirm('Are you sure you want to delete')) {
+            let a = await fetch(`http://localhost:3401/userData/${id}`, {
+                method: 'DELETE',
+            })
+            if (a.ok) {
+                let a = await fetch("http://localhost:3401/userData")
+                let b = await a.json();
+                setUserData(b);
+            }
+            // fetch(`http://localhost:3401/userData/${id}`, {
+            //     method: 'DELETE',
+            // })
 
+            // fetch("http://localhost:3401/userData")
+            //     .then(res => res.json())
+            //     .then(result => {
+            //         setUserData(result)
+            //         console.log(result)
+            //     })
+        }
     }
 
     return (
@@ -47,4 +67,4 @@ const PrintTable = ({ userData }) => {
     )
 }
 
-export default PrintTable
+export default Table
