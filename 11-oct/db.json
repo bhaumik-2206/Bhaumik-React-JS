@@ -1,0 +1,60 @@
+{
+  "userData": [
+    {
+      "firstName": "Bhaumik",
+      "lastName": "Panchal",
+      "age": "18",
+      "mobileNumber": "9876543210",
+      "id": 1
+    },
+    {
+      "firstName": "Raj",
+      "lastName": "Bundela",
+      "age": "19",
+      "mobileNumber": "7894651320",
+      "id": 2
+    },
+    {
+      "firstName": "Riddhi",
+      "lastName": "Prajapati",
+      "age": "18",
+      "mobileNumber": "7984563120",
+      "id": 3
+    },
+    {
+      "firstName": "Pinki",
+      "lastName": "Panchal",
+      "age": "20",
+      "mobileNumber": "7894561320",
+      "id": 4
+    },
+    {
+      "firstName": "Vivek ",
+      "lastName": "panchal",
+      "age": "19",
+      "mobileNumber": "9874651230",
+      "id": 5
+    },
+    {
+      "firstName": "Ayushi",
+      "lastName": "Joshi",
+      "age": "18",
+      "mobileNumber": "7895461230",
+      "id": 7
+    },
+    {
+      "firstName": "Bhavik",
+      "lastName": "Panchal",
+      "age": "19",
+      "mobileNumber": "798456123",
+      "id": 9
+    },
+    {
+      "firstName": "Example",
+      "lastName": "Example",
+      "age": "12",
+      "mobileNumber": "7894561230",
+      "id": 10
+    }
+  ]
+}

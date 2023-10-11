@@ -4,18 +4,22 @@ import MainForm from './MainForm';
 
 const EditUser = () => {
     const { editedData } = useParams();
-    const [currentData, setCurrentData] = useState({});
+    const [currentData, setCurrentData] = useState({ fname: "", lname: "", mobile: "", email: "", password: "" });
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:3401/userData/${editedData}`)
-            .then((res) => {
-                return res.json();
-            }).then((res) => {
-                setCurrentData(res);
-            }).catch((err) => {
-                console.log(err.message);
-            })
+        // console.log()
+        // console.log(typeof editedData)
+        if (Number(editedData) !== NaN) {
+            fetch(`http://localhost:3401/userData/${editedData}`)
+                .then((res) => {
+                    return res.json();
+                }).then((res) => {
+                    setCurrentData(res);
+                }).catch((err) => {
+                    console.log(err.message);
+                })
+        }
     }, []);
 
     const handleChange = (e) => {
@@ -23,17 +27,18 @@ const EditUser = () => {
         setCurrentData(pre => ({ ...pre, [name]: value }))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3401/userData/${editedData}`, {
-            method: "PUT",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify(currentData)
-        }).then((res) => {
-            navigate('/');
-        }).catch((err) => {
-            console.log("ERROR" + err.message)
-        })
+        try {
+            let a = await fetch(`http://localhost:3401/userData/${editedData}`, {
+                method: "PUT",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify(currentData)
+            })
+            navigate('/')
+        } catch (error) {
+            console.log("ERROR: " + error)
+        }
     }
 
     return (

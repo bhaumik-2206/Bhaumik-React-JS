@@ -14,7 +14,7 @@ const Form = () => {
         e.preventDefault();
         fetch("http://localhost:3401/userData", {
             method: "POST",
-            headers: { "content-type": "application/json" },
+            headers: { "Content-type": "application/json" },
             body: JSON.stringify(currentData)
         }).then((res) => {
             navigate('/');

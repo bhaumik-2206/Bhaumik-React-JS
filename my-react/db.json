@@ -13,8 +13,247 @@
       "lname": "Prajapati",
       "mobile": "798654312",
       "email": "riddhi@gmail.com",
-      "password": "rgf",
+      "password": "Riddhi@1709",
       "id": 2
+    },
+    {
+      "fname": "Raj",
+      "lname": "Bundela",
+      "mobile": "789456132",
+      "email": "rajbundela@gmail.com",
+      "password": "Raj@1709",
+      "id": 3
+    },
+    {
+      "fname": "Vivek ",
+      "lname": "Panchal",
+      "mobile": "789546321",
+      "email": "vivekpanchal@gmail.com",
+      "password": "tyghdj",
+      "id": 4
+    },
+    {
+      "fname": "abc",
+      "lname": "patel",
+      "mobile": "789456123",
+      "email": "example@gmail.com",
+      "password": "cfgvbhjn",
+      "id": 5
+    },
+    {
+      "fname": "Sachin",
+      "lname": "abc",
+      "mobile": "12345678935345",
+      "email": "demo@gmail.com",
+      "password": "tgybhnj",
+      "id": 6
+    },
+    {
+      "fname": "example",
+      "lname": "example",
+      "mobile": "9874653",
+      "email": "example@gmail.com",
+      "password": "987546123",
+      "id": 7
+    }
+  ],
+  "orderedItem": [
+    {
+      "id": 1,
+      "value": [
+        {
+          "item": "pizza",
+          "price": "5",
+          "quantity": "199"
+        }
+      ]
+    },
+    {
+      "value": [
+        {
+          "item": "pizza",
+          "price": "789",
+          "quantity": "879"
+        },
+        {
+          "item": "Crunchex",
+          "price": "2",
+          "quantity": "10"
+        }
+      ],
+      "id": 2
+    }
+  ],
+  "createdArticle": [
+    {
+      "id": 1,
+      "title": "Learn React JS",
+      "content": "Let's Learn React JS (This is a Content of the Article)\n",
+      "author": "React"
+    },
+    {
+      "title": "iuhuijhik",
+      "content": "tfwecrtfvguyhjisrxdctfvgybuhnij\n",
+      "author": "hbhijh",
+      "id": 2
+    },
+    {
+      "title": "Poen on sky",
+      "content": "uhbrfwedfkedfpoijrfko...\n",
+      "author": "Abdul ",
+      "id": 5
+    }
+  ],
+  "article": [
+    {
+      "id": 1,
+      "title": "Introduction to React",
+      "content": "React is a JavaScript library for building user interfaces...",
+      "author": "John Doe"
+    },
+    {
+      "id": 2,
+      "title": "Getting Started with Redux",
+      "content": "Redux is a predictable state container for JavaScript apps...",
+      "author": "Jane Smith"
+    },
+    {
+      "id": 3,
+      "title": "Responsive Web Design Techniques",
+      "content": "Learn how to create responsive web designs with CSS...",
+      "author": "Alice Johnson"
+    },
+    {
+      "id": 4,
+      "title": "Node.js for Beginners",
+      "content": "Node.js is a JavaScript runtime for server-side development...",
+      "author": "Bob Brown"
+    },
+    {
+      "id": 5,
+      "title": "Advanced JavaScript Functions",
+      "content": "Explore advanced functions in JavaScript...",
+      "author": "Eve Adams"
+    },
+    {
+      "id": 6,
+      "title": "Python Programming Fundamentals",
+      "content": "Get started with Python programming...",
+      "author": "Charlie Wilson"
+    },
+    {
+      "id": 7,
+      "title": "Machine Learning Basics",
+      "content": "An introduction to machine learning algorithms...",
+      "author": "Grace Davis"
+    },
+    {
+      "id": 8,
+      "title": "Building RESTful APIs with Express",
+      "content": "Create RESTful APIs using Node.js and Express...",
+      "author": "Sam Green"
+    },
+    {
+      "id": 9,
+      "title": "Web Security Best Practices",
+      "content": "Learn how to secure your web applications...",
+      "author": "Liam Parker"
+    },
+    {
+      "id": 10,
+      "title": "Database Design Principles",
+      "content": "Design efficient and scalable databases...",
+      "author": "Olivia Clark"
+    },
+    {
+      "id": 11,
+      "title": "Introduction to Angular",
+      "content": "Angular is a popular JavaScript framework for building web apps...",
+      "author": "Daniel White"
+    },
+    {
+      "id": 12,
+      "title": "Front-end Development Tools",
+      "content": "Explore essential tools for front-end developers...",
+      "author": "Sophia Moore"
+    },
+    {
+      "id": 13,
+      "title": "Artificial Intelligence in Healthcare",
+      "content": "AI's role in transforming healthcare...",
+      "author": "William Taylor"
+    },
+    {
+      "id": 14,
+      "title": "JavaScript ES6 Features",
+      "content": "A guide to the latest features in ES6...",
+      "author": "Mia Anderson"
+    },
+    {
+      "id": 15,
+      "title": "Getting Started with Vue.js",
+      "content": "Vue.js is a progressive JavaScript framework for building user interfaces...",
+      "author": "James Lee"
+    },
+    {
+      "id": 16,
+      "title": "Cybersecurity Threats in 2023",
+      "content": "The current landscape of cybersecurity threats...",
+      "author": "Ava Johnson"
+    },
+    {
+      "id": 17,
+      "title": "React Native Mobile App Development",
+      "content": "Building mobile apps using React Native...",
+      "author": "Noah Wilson"
+    },
+    {
+      "id": 18,
+      "title": "Cloud Computing Basics",
+      "content": "An overview of cloud computing technologies...",
+      "author": "Emily Brown"
+    },
+    {
+      "id": 19,
+      "title": "Docker Containers in DevOps",
+      "content": "Using Docker for containerization in DevOps...",
+      "author": "Lucas Davis"
+    },
+    {
+      "id": 20,
+      "title": "Advanced CSS Techniques",
+      "content": "Master advanced CSS concepts for web design...",
+      "author": "Aiden Martinez"
+    },
+    {
+      "id": 21,
+      "title": "Python Data Analysis with Pandas",
+      "content": "Analyzing data with the Pandas library in Python...",
+      "author": "Lily Adams"
+    },
+    {
+      "id": 22,
+      "title": "Web Accessibility Guidelines",
+      "content": "Ensuring web content is accessible to all users...",
+      "author": "William Parker"
+    },
+    {
+      "id": 23,
+      "title": "Agile Software Development",
+      "content": "The principles and practices of Agile software development...",
+      "author": "Ella Green"
+    },
+    {
+      "id": 24,
+      "title": "JavaScript Promises",
+      "content": "Using promises for asynchronous programming in JavaScript...",
+      "author": "Jack Taylor"
+    },
+    {
+      "id": 25,
+      "title": "GraphQL Fundamentals",
+      "content": "An introduction to the GraphQL query language...",
+      "author": "Sophia Wilson"
     }
   ]
 }

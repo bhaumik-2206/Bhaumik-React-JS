@@ -1,34 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import ConfirmationModal from './ConfirmationModal';
 
-const Table = ({ userData, setUserData }) => {
-
+const Table = ({ userData, setUserData, search }) => {
+    const [show, setShow] = useState(false);
+    const [deleteId, setDeleteId] = useState(-1);
     let navigate = useNavigate();
     const handleEdit = (data) => {
         navigate(`edit/${data.id}`);
     }
 
-    const handleDelete = async (id) => {
-        if (window.confirm('Are you sure you want to delete')) {
-            let a = await fetch(`http://localhost:3401/userData/${id}`, {
-                method: 'DELETE',
-            })
-            if (a.ok) {
-                let a = await fetch("http://localhost:3401/userData")
-                let b = await a.json();
-                setUserData(b);
-            }
-            // fetch(`http://localhost:3401/userData/${id}`, {
-            //     method: 'DELETE',
-            // })
+    async function getData() {
+        let res = await fetch("http://localhost:3401/userData");
+        let result = await res.json();
+        setUserData(result);
+    }
 
-            // fetch("http://localhost:3401/userData")
-            //     .then(res => res.json())
-            //     .then(result => {
-            //         setUserData(result)
-            //         console.log(result)
-            //     })
-        }
+    const handleDelete = async (id) => {
+        setShow(true);
+        setDeleteId(id);
     }
 
     return (
@@ -62,7 +52,8 @@ const Table = ({ userData, setUserData }) => {
                             </tr>
                         ))}
                     </tbody>
-                </table>) : (<h1>Data is Empty</h1>)}
+                </table>) : (<h1>{search !== "" ? "Data Not Found" : "Data is Empty"}</h1>)}
+            <ConfirmationModal show={show} setShow={setShow} deleteId={deleteId} getData={getData} />
         </div>
     )
 }
