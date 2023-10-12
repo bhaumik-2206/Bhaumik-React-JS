@@ -1,10 +1,12 @@
 import './App.css';
 import MainPage from './CRUD/MainPage';
+import UseContext from './Hooks/UseContext/UseContext';
 
 function App() {
   return (
     <div>
-      <MainPage />
+      {/* <MainPage /> */}
+      <UseContext />
     </div>
   );
 }

@@ -1,4 +1,54 @@
 {
+  "registrationUser": [
+    {
+      "id": 1,
+      "mobileNumber": "7894561230",
+      "name": "Bhaumik",
+      "password": "Bhaumik@22",
+      "age": 18,
+      "confirmPassword": "Bhaumik@22"
+    },
+    {
+      "name": "Riddhi",
+      "mobileNumber": 8795462130,
+      "age": 78,
+      "password": "Riddhi@1709",
+      "confirmPassword": "Riddhi@1709",
+      "id": 2
+    },
+    {
+      "name": "Pinki",
+      "mobileNumber": 7894561230,
+      "age": 18,
+      "password": "Pinki@0208",
+      "confirmPassword": "Pinki@0208",
+      "id": 3
+    },
+    {
+      "name": "Vivek",
+      "mobileNumber": 7894561320,
+      "age": 28,
+      "password": "Vivek@2204",
+      "confirmPassword": "Vivek@2204",
+      "id": 4
+    },
+    {
+      "name": "Rohit",
+      "mobileNumber": 9876543210,
+      "age": 48,
+      "password": "Hitman@45",
+      "confirmPassword": "Hitman@45",
+      "id": 5
+    },
+    {
+      "name": "uyhfbvdj",
+      "mobileNumber": 7986543210,
+      "age": 48,
+      "password": "yyYY77&&",
+      "confirmPassword": "yyYY77&&",
+      "id": 6
+    }
+  ],
   "userData": [
     {
       "firstName": "Bhaumik",
@@ -55,6 +105,27 @@
       "age": "12",
       "mobileNumber": "7894561230",
       "id": 10
+    },
+    {
+      "firstName": "Rohit",
+      "lastName": "Sharma",
+      "age": "33",
+      "mobileNumber": "7896541320",
+      "id": 11
+    },
+    {
+      "firstName": "Jeel",
+      "lastName": "Rajpara",
+      "age": "19",
+      "mobileNumber": "7894561230",
+      "id": 12
+    },
+    {
+      "firstName": "Virat",
+      "lastName": "Kohli",
+      "age": "32",
+      "mobileNumber": "987654321",
+      "id": 13
     }
   ]
 }

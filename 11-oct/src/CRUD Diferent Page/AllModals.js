@@ -4,36 +4,37 @@ import LastName from './LastName';
 import AgeModal from './AgeModal';
 import MobileNumber from './MobileNumber';
 
-const AllModals = () => {
+const AllModals = ({ state, dispatch }) => {
     const [currentData, setCurrentData] = useState({ firstName: "", lastName: "", age: "", mobileNumber: "" })
-    const [state, dispatch] = useReducer(reducer, { firstName: true, lastName: false, age: false, mobileNumber: false })
 
-    function reducer(state, action) {
-        let defaultModal = { firstName: false, lastName: false, age: false, mobileNumber: false };
-        if (action.goTo === "firstName") {
-            return { ...defaultModal, [action.name]: true }
-        } else if (action.goTo === "lastName") {
-            return { ...defaultModal, [action.name]: true }
-        } else if (action.goTo === "age") {
-            return { ...defaultModal, [action.name]: true }
-        } else if (action.goTo === "mobileNumber") {
-            return { ...defaultModal, [action.name]: true }
-        } else {
-            return defaultModal;
-        }
-    }
+    // const [state, dispatch] = useReducer(reducer, { firstName: true, lastName: false, age: false, mobileNumber: false })
+
+    // function reducer(state, action) {
+    //     let defaultModal = { firstName: false, lastName: false, age: false, mobileNumber: false };
+    //     if (action.type === "firstName") {
+    //         return { ...defaultModal, "firstName": true }
+    //     } else if (action.type === "lastName") {
+    //         return { ...defaultModal, "lastName": true }
+    //     } else if (action.type === "age") {
+    //         return { ...defaultModal, "age": true }
+    //     } else if (action.type === "mobileNumber") {
+    //         return { ...defaultModal, "mobileNumber": true }
+    //     } else {
+    //         return defaultModal;
+    //     }
+    // }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setCurrentData(pre => ({ ...pre, [name]: value }));
     }
-    
+
     return (
         <div>
-            <FirstName state={state} dispatch={dispatch} handleChange={handleChange} currentData={currentData} />
-            <LastName state={state} dispatch={dispatch} handleChange={handleChange} currentData={currentData} />
-            <AgeModal state={state} dispatch={dispatch} handleChange={handleChange} currentData={currentData} />
-            <MobileNumber state={state} dispatch={dispatch} handleChange={handleChange} currentData={currentData} />
+            <FirstName state={state} dispatch={dispatch} handleChange={handleChange} currentData={currentData} setCurrentData={setCurrentData} />
+            <LastName state={state} dispatch={dispatch} handleChange={handleChange} currentData={currentData} setCurrentData={setCurrentData} />
+            <AgeModal state={state} dispatch={dispatch} handleChange={handleChange} currentData={currentData} setCurrentData={setCurrentData} />
+            <MobileNumber state={state} dispatch={dispatch} handleChange={handleChange} currentData={currentData} setCurrentData={setCurrentData} />
         </div>
     )
 }

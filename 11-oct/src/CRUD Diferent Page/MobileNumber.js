@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const MobileNumber = ({ state, dispatch, handleChange, currentData }) => {
+const MobileNumber = ({ state, dispatch, handleChange, currentData, setCurrentData }) => {
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -14,7 +14,9 @@ const MobileNumber = ({ state, dispatch, handleChange, currentData }) => {
                 body: JSON.stringify(currentData)
             })
             if (res.ok) {
-                navigate("/");
+                // navigate("/");
+                dispatch({ submit: true })
+                setCurrentData({ firstName: "", lastName: "", age: "", mobileNumber: "" })
             }
         } catch (error) {
             alert("ERROR: " + error.message)
@@ -34,9 +36,14 @@ const MobileNumber = ({ state, dispatch, handleChange, currentData }) => {
                 <button
                     type='button'
                     className='bg-blue-500 text-white my-3 rounded-lg'
-                    onClick={() => dispatch({ goTo: "age", name: "age" })}>Previous</button>
+                    onClick={() => dispatch({ type: "age" })}>Previous</button>
                 <button type='submit' className='bg-blue-500 text-white my-3 rounded-lg'>Submit</button>
-                <button className='bg-red-700 text-white my-3 rounded-lg' type="button" onClick={() => navigate("/")}>Close</button>
+                {/* <button className='bg-red-700 text-white my-3 rounded-lg' type="button" onClick={() => navigate("/")}>Close</button> */}
+                <button className='bg-red-700 text-white my-3 rounded-lg' type="button"
+                    onClick={() => {
+                        dispatch({ cancel: true });
+                        setCurrentData({ firstName: "", lastName: "", age: "", mobileNumber: "" })
+                    }}>Close</button>
             </form>
         </div >
     )

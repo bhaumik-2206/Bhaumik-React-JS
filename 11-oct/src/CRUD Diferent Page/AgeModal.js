@@ -1,11 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const AgeModal = ({ state, dispatch, handleChange, currentData }) => {
+const AgeModal = ({ state, dispatch, handleChange, currentData, setCurrentData }) => {
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch({ goTo: "mobileNumber", name: "mobileNumber" })
+        dispatch({ type: "mobileNumber" })
     }
     return (
         <div className={`${state.age ? "block" : "hidden"} bg-white border shadow-2xl border-black rounded-2xl px-4 py-10 w-4/6 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-4`}>
@@ -21,10 +21,14 @@ const AgeModal = ({ state, dispatch, handleChange, currentData }) => {
                 <button
                     type='button'
                     className='bg-blue-500 text-white my-3 rounded-lg'
-                    onClick={() => dispatch({ goTo: "lastName", name: "lastName" })}>Previous</button>
+                    onClick={() => dispatch({ type: "lastName" })}>Previous</button>
                 <button className='bg-blue-500 text-white my-3 rounded-lg' type='submit'>Next</button>
-                <button className='bg-red-700 text-white my-3 rounded-lg' type="button" onClick={() => navigate("/")}>Close</button>
-            </form>
+                {/* <button className='bg-red-700 text-white my-3 rounded-lg' type="button" onClick={() => navigate("/")}>Close</button> */}
+                <button className='bg-red-700 text-white my-3 rounded-lg' type="button"
+                    onClick={() => {
+                        dispatch({ cancel: true });
+                        setCurrentData({ firstName: "", lastName: "", age: "", mobileNumber: "" })
+                    }}>Close</button>            </form>
         </div>
     )
 }

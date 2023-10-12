@@ -2,21 +2,23 @@ import React, { useEffect, useState } from 'react'
 import ConfirmationModal from './ConfirmationModal';
 import PrintTable from './PrintTable';
 
-const Table = () => {
-    const [userData, setUserData] = useState([])
+const Table = ({ userData, setUserData }) => {
+    // const [userData, setUserData] = useState([]);
     const [show, setShow] = useState(false);
     const [deleteId, setDeleteId] = useState(-1);
     // const [field, setField] = useState([]);
 
 
-    useEffect(() => {
-        fetch("http://localhost:3500/userData")
-            .then(e => e.json())
-            .then(data => {
-                setUserData(data)
-            })
-            .catch(e => console.log(e))
-    }, [])
+    // useEffect(() => {
+    //     getData();
+    //     // fetch("http://localhost:3500/userData")
+    //     //     .then(e => e.json())
+    //     //     .then(data => {
+    //     //         // setField(Object.keys(data[0]));
+    //     //         setUserData(data)
+    //     //     })
+    //     //     .catch(e => console.log(e))
+    // }, [])
 
 
     const handleDelete = (id) => {
@@ -29,6 +31,7 @@ const Table = () => {
         let result = await res.json();
         setUserData(result);
     }
+    // console.log(field)
 
     return (
         <>

@@ -1,10 +1,22 @@
 import './App.css';
-import MainCrudPage from './CRUD Diferent Page/MainCrudPage';
+// import MainCrudPage from './CRUD Diferent Page/MainCrudPage';
 
-function App() {
+// function App() {
+//   return (
+//     <MainCrudPage />
+//   );
+// }
+
+// export default App;
+
+
+import React from 'react'
+import MainPage from './Registratino Form CRUD/MainPage';
+
+const App = () => {
   return (
-    <MainCrudPage />
-  );
+    <MainPage />
+  )
 }
 
-export default App;
+export default App

@@ -14,9 +14,9 @@ const RegistrationForm = () => {
                         <input
                             className='shadow appearance-none border rounded w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg'
                             type="text"
-                        // id='email'
-                        // name='email'
-                        placeholder='Enter your Full Name'
+                            // id='email'
+                            // name='email'
+                            placeholder='Enter your Full Name'
                         // value={formik.values.email}
                         // onBlur={formik.handleBlur}
                         // onChange={formik.handleChange}
@@ -27,9 +27,9 @@ const RegistrationForm = () => {
                         <input
                             className='shadow appearance-none border rounded w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg'
                             type="email"
-                        // id='email'
-                        // name='email'
-                        placeholder='Enter your email address'
+                            // id='email'
+                            // name='email'
+                            placeholder='Enter your email address'
                         // value={formik.values.email}
                         // onBlur={formik.handleBlur}
                         // onChange={formik.handleChange}
@@ -40,9 +40,9 @@ const RegistrationForm = () => {
                         <input
                             className='shadow appearance-none border-2 rounded w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg'
                             type="text"
-                        // id='password'
-                        // name='password'
-                        placeholder='Enter your password'
+                            // id='password'
+                            // name='password'
+                            placeholder='Enter your password'
                         // value={formik.values.password}
                         // onBlur={formik.handleBlur}
                         // onChange={formik.handleChange}

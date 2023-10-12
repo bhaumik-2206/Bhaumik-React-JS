@@ -1,16 +1,17 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
-const ConfirmationModal = ({ show, setShow, setDeleteId, getData, deleteId }) => {
+const ConfirmationModal = ({ show, setShow, deleteId, getData }) => {
+    const navigate = useNavigate();
     const handleDelete = async () => {
-        if(deleteId !== -1){
+        if (deleteId !== -1) {
             try {
-                let res = await fetch(`http://localhost:3500/userData/${deleteId}`,{
+                let res = await fetch(`http://localhost:3500/registrationUser/${deleteId}`, {
                     method: 'DELETE',
                 });
-                if(res.ok){
+                if (res.ok) {
                     setShow(false);
                     getData();
-                    setDeleteId(-1);
                 }
             } catch (error) {
                 alert("Data Not Found")

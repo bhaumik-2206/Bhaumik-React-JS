@@ -7,53 +7,49 @@ import Table from './Table'
 
 
 const MainCrudPage = () => {
-    // const [userData, setUserData] = useState([])
-    // const [state, dispatch] = useReducer(reducer, { firstName: false, lastName: false, age: false, mobileNumber: false })
+    const [userData, setUserData] = useState([]);
+    const [state, dispatch] = useReducer(reducer, { firstName: false, lastName: false, age: false, mobileNumber: false })
+    useEffect(() => {
+        getData();
+    }, []);
 
+    function reducer(state, action) {
+        let defaultModal = { firstName: false, lastName: false, age: false, mobileNumber: false };
+        if (action.cancel) {
+            return defaultModal;
+        } else if (action.type === "firstName") {
+            return { ...defaultModal, "firstName": true }
+        } else if (action.type === "lastName") {
+            return { ...defaultModal, "lastName": true }
+        } else if (action.type === "age") {
+            return { ...defaultModal, "age": true }
+        } else if (action.type === "mobileNumber") {
+            return { ...defaultModal, "mobileNumber": true }
+        } else if (action.submit) {
+            getData();
+            return defaultModal;
+        }
+    }
 
-    // useEffect(() => {
-    //     getData();
-    // }, []);
-
-    // function reducer(state, action) {
-    //     let defaultModal = { firstName: false, lastName: false, age: false, mobileNumber: false };
-    //     if (action.goTo === "firstName") {
-    //         return { ...defaultModal, [action.name]: true }
-    //     } else if (action.goTo === "lastName") {
-    //         return { ...defaultModal, [action.name]: true }
-    //     } else if (action.goTo === "age") {
-    //         return { ...defaultModal, [action.name]: true }
-    //     } else if (action.goTo === "mobileNumber") {
-    //         return { ...defaultModal, [action.name]: true }
-    //     } else if (action.submit) {
-    //         getData();
-    //         return defaultModal;
-    //     }
-    // }
-
-    // function getData() {
-    //     fetch("http://localhost:3500/userData")
-    //         .then(e => e.json())
-    //         .then(data => {
-    //             setUserData(data)
-    //         })
-    //         .catch(e => console.log(e))
-    // }
-
-
+    function getData() {
+        fetch("http://localhost:3500/userData")
+            .then(e => e.json())
+            .then(data => {
+                setUserData(data)
+            })
+            .catch(e => console.log(e))
+    }
 
     return (
         <>
-            <Routes>
+            {/* <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/addUser' element={<AllModals />} />
-            </Routes>
+            </Routes> */}
 
-
-            {/* <button className='bg-blue-500 text-white my-3 rounded-lg' onClick={() => dispatch({ goTo: "firstName", name: "firstName" })}>Add User</button>
+            <button className='bg-blue-500 text-white my-3 rounded-lg' onClick={() => dispatch({ type: "firstName" })}>Add User</button>
             <Table userData={userData} setUserData={setUserData} />
-            <AllModals state={state} dispatch={dispatch} /> */}
-
+            <AllModals state={state} dispatch={dispatch} />
 
             {/* <Routes>
                 <Route path='/' element={<Home />} />
