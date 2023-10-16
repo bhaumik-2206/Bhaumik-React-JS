@@ -4,126 +4,185 @@
       "id": 1,
       "mobileNumber": "7894561230",
       "name": "Bhaumik",
-      "password": "Bhaumik@22",
-      "age": 18,
-      "confirmPassword": "Bhaumik@22"
+      "password": "Bhaumik@2206",
+      "dateOfBirth": "2004-06-16",
+      "confirmPassword": "Bhaumik@2206"
     },
     {
-      "name": "Riddhi",
-      "mobileNumber": 8795462130,
-      "age": 78,
-      "password": "Riddhi@1709",
-      "confirmPassword": "Riddhi@1709",
+      "name": "Raj",
+      "mobileNumber": 9876543210,
+      "dateOfBirth": "2004-09-17",
+      "password": "Raj@1709",
+      "confirmPassword": "Raj@1709",
       "id": 2
     },
     {
       "name": "Pinki",
       "mobileNumber": 7894561230,
-      "age": 18,
+      "dateOfBirth": "2004-06-16",
       "password": "Pinki@0208",
       "confirmPassword": "Pinki@0208",
       "id": 3
     },
     {
+      "name": "Riddhi",
+      "mobileNumber": 8795462130,
+      "dateOfBirth": "2005-09-17",
+      "password": "Riddhi@1709",
+      "confirmPassword": "Riddhi@1709",
+      "id": 4
+    },
+    {
       "name": "Vivek",
       "mobileNumber": 7894561320,
-      "age": 28,
+      "dateOfBirth": "2004-06-16",
+      "password": "Vivek@2204",
+      "confirmPassword": "Vivek@2204",
+      "id": 5
+    },
+    {
+      "name": "Rohit",
+      "mobileNumber": 9876543210,
+      "dateOfBirth": "2004-06-16",
+      "password": "Hitman@45",
+      "confirmPassword": "Hitman@45",
+      "id": 6
+    },
+    {
+      "name": "Jeel ",
+      "mobileNumber": 9875463510,
+      "dateOfBirth": "2005-08-02",
+      "password": "Jeel@0208",
+      "confirmPassword": "Jeel@0208",
+      "id": 7
+    }
+  ],
+  "registerUser": [
+    {
+      "id": 1,
+      "fullName": "Bhaumik Panchal",
+      "email": "bhaumik@gmail.com",
+      "password": "Bhaumik@22",
+      "confirmPassword": "Bhaumik@22"
+    },
+    {
+      "id": 2,
+      "fullName": "Riddhi Prajapati",
+      "email": "riddhi@gmail.com",
+      "password": "Riddhi@22",
+      "confirmPassword": "Riddhi@22"
+    },
+    {
+      "fullName": "Raj Bundela",
+      "email": "raj@gmail.com",
+      "password": "Raj@1709",
+      "confirmPassword": "Raj@1709",
+      "id": 3
+    },
+    {
+      "fullName": "Vivek Panchal",
+      "email": "vivek@gmail.com",
       "password": "Vivek@2204",
       "confirmPassword": "Vivek@2204",
       "id": 4
     },
     {
-      "name": "Rohit",
-      "mobileNumber": 9876543210,
-      "age": 48,
-      "password": "Hitman@45",
-      "confirmPassword": "Hitman@45",
+      "fullName": "Pinki Panchal",
+      "email": "pinki@gmail.com",
+      "password": "Pinki@0208",
+      "confirmPassword": "Pinki@0208",
       "id": 5
     },
     {
-      "name": "uyhfbvdj",
-      "mobileNumber": 7986543210,
-      "age": 48,
-      "password": "yyYY77&&",
-      "confirmPassword": "yyYY77&&",
+      "fullName": "Test ",
+      "email": "test@gmail.com",
+      "password": "Test@222",
+      "confirmPassword": "Test@222",
       "id": 6
+    },
+    {
+      "fullName": "Hello",
+      "email": "hello@gmail.com",
+      "password": "Hello@2222",
+      "confirmPassword": "Hello@2222",
+      "id": 7
     }
   ],
   "userData": [
     {
       "firstName": "Bhaumik",
       "lastName": "Panchal",
-      "age": "18",
+      "dateOfBirth": "18",
       "mobileNumber": "9876543210",
       "id": 1
     },
     {
       "firstName": "Raj",
       "lastName": "Bundela",
-      "age": "19",
+      "dateOfBirth": "19",
       "mobileNumber": "7894651320",
       "id": 2
     },
     {
       "firstName": "Riddhi",
       "lastName": "Prajapati",
-      "age": "18",
+      "dateOfBirth": "18",
       "mobileNumber": "7984563120",
       "id": 3
     },
     {
       "firstName": "Pinki",
       "lastName": "Panchal",
-      "age": "20",
+      "dateOfBirth": "20",
       "mobileNumber": "7894561320",
       "id": 4
     },
     {
       "firstName": "Vivek ",
       "lastName": "panchal",
-      "age": "19",
+      "dateOfBirth": "19",
       "mobileNumber": "9874651230",
       "id": 5
     },
     {
       "firstName": "Ayushi",
       "lastName": "Joshi",
-      "age": "18",
+      "dateOfBirth": "18",
       "mobileNumber": "7895461230",
       "id": 7
     },
     {
       "firstName": "Bhavik",
       "lastName": "Panchal",
-      "age": "19",
+      "dateOfBirth": "19",
       "mobileNumber": "798456123",
       "id": 9
     },
     {
       "firstName": "Example",
       "lastName": "Example",
-      "age": "12",
+      "dateOfBirth": "12",
       "mobileNumber": "7894561230",
       "id": 10
     },
     {
       "firstName": "Rohit",
       "lastName": "Sharma",
-      "age": "33",
+      "dateOfBirth": "33",
       "mobileNumber": "7896541320",
       "id": 11
     },
     {
       "firstName": "Jeel",
       "lastName": "Rajpara",
-      "age": "19",
+      "dateOfBirth": "19",
       "mobileNumber": "7894561230",
       "id": 12
     },
     {
       "firstName": "Virat",
       "lastName": "Kohli",
-      "age": "32",
+      "dateOfBirth": "32",
       "mobileNumber": "987654321",
       "id": 13
     }

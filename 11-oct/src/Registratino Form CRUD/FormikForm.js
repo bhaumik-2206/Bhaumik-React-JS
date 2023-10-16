@@ -1,151 +1,69 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import * as Yup from "yup";
-import { Formik, useFormik } from 'formik';
+import { Formik } from 'formik';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import dayjs from 'dayjs';
+import InputComponent from './InputComponent';
 
-const FormikForm = () => {
+const FormikForm = ({ currentData }) => {
     const { editId } = useParams();
     const navigate = useNavigate();
 
-    const [currentData, setCurrentData] = useState({ name: "", mobileNumber: "", age: "", password: "", confirmPassword: "" })
+    let validate =
+        Yup.object({
+            name: Yup.string().trim().min(3, "First Name have atleast 3 characters").required("Required"),
+            mobileNumber: Yup.string().trim().min(10, "Mobile Number Have Only 10 Character").max(10, "Mobile Number Have Only 10 Character").required("Required"),
+            dateOfBirth: Yup.date().required('Required').test('is-at-least-18', 'You must be at least 18 years old',
+                (value) => dayjs().diff(dayjs(value), 'year') >= 18 ? true : false),
+                password: Yup.string().trim().matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*+=!])(?!.*\s).{8,}$/, "Not A Strong Password").required("Required"),
+            confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Password Not Match').required("Required"),
+        })
 
-    useEffect(() => {
-        if (editId) {
-            fetch(`http://localhost:3500/registrationUser/${editId}`)
-                .then(e => e.json())
-                .then(data => {
-                    setCurrentData(data);
-                    console.log(currentData);
-                });
+    const handleSubmit = async (values, action) => {
+        // console.log(action)
+        // console.log(values)
+        try {
+            let url = editId ? `http://localhost:3500/registrationUser/${editId}` : `http://localhost:3500/registrationUser`
+            let res = await fetch(url, {
+                method: editId ? 'PUT' : 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(values),
+            });
+            if (res.ok) {
+                navigate("/");
+                toast.success(`${editId ? "Data Updated Successfully" : "Data Added Successfully"}`);
+            }
+        } catch (error) {
+            toast.warning(`${editId ? "Error In Updating Data" : "Error In Adding User"}`);
         }
-    }, []);
+    }
 
     return (
-        <Formik
-            initialValues={currentData}
-            onSubmit={async (values, action) => {
-                if (editId) {
-                    try {
-                        let res = await fetch(`http://localhost:3500/registrationUser/${editId}`, {
-                            method: 'PUT',
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify(values)
-                        });
-                        if (res.ok) {
-                            navigate("/");
-                        }
-                    } catch (error) {
-                        console.log("ERROR: " + error)
-                    }
-                } else {
-                    try {
-                        let res = await fetch("http://localhost:3500/registrationUser", {
-                            method: 'POST',
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify(values)
-                        })
-                        if (res.ok) {
-                            navigate("/");
-                        }
-                    } catch (error) {
-                        console.log("ERROR: " + error)
-                    }
-
-                }
-            }}
-            validationSchema={Yup.object({
-                name: Yup.string().trim().min(3, "First Name have atleast 3 characters").required("Required"),
-                mobileNumber: Yup.string().trim().min(10, "Mobile Number Have Only 10 Character").max(10, "Mobile Number Have Only 10 Character").required("Required"),
-                age: Yup.number().min(18, "Age must be greater than 18").required("Required"),
-                password: Yup.string().trim().matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])(?!.*\s).{8,}$/, "Not A Strong Password").required("Required"),
-                confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Password Not Match').required("Required"),
-            })}
-            enableReinitialize
-        >
-            {props => (
-                <form action="" onSubmit={props.handleSubmit}>
-                    <div>
-                        <div className='mb-3'>
-                            <input
-                                className='shadow appearance-none border rounded w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg'
-                                value={props.values.name}
-                                onChange={props.handleChange}
-                                onBlur={props.handleBlur}
-                                type="text" name='name'
-                                placeholder='Enter Your Name' />
-                            {props.touched.name && props.errors.name && <p className='text-lg text-red-600 text-left mb-2'>{props.errors.name}</p>}
+        <div className='w-3/5 bg-gray-0 m-auto text-center rounded-2xl p-10 fixed top-1/2 left-1/2 -translate-y-2/4 -translate-x-2/4 border-2 bg-gray-300'>
+            <Formik
+                initialValues={currentData}
+                onSubmit={handleSubmit}
+                validationSchema={validate}
+                enableReinitialize>
+                {props => (
+                    <form action="" onSubmit={props.handleSubmit}>
+                        <InputComponent props={props} name="name" type="text" placeholder="Enter Your Name" />
+                        <InputComponent props={props} name="mobileNumber" type="text" placeholder="Enter Your Mobile Number" />
+                        <InputComponent props={props} name="dateOfBirth" type="date" />
+                        <InputComponent props={props} name="password" type="password" placeholder="Password" />
+                        <InputComponent props={props} name="confirmPassword" type="password" placeholder="Confirm Password" />
+                        <div className='flex justify-between'>
+                            <button type="submit" className='bg-blue-500 text-white my-3 rounded-lg'>{editId ? "Update" : "Registration"}</button>
+                            <button type="button" className='bg-red-500 text-white my-3 rounded-lg' onClick={() => navigate("/")}>Cancel</button>
                         </div>
-                    </div>
-                    <div className='mb-3'>
-                        <input
-                            className='shadow appearance-none border rounded w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg'
-                            value={props.values.mobileNumber}
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            type="number"
-                            name='mobileNumber'
-                            placeholder='Enter Your Mobile Number' />
-                        {props.touched.mobileNumber && props.errors.mobileNumber && <p className='text-lg text-red-600 text-left mb-2'>{props.errors.mobileNumber}</p>}
-                    </div>
-                    <div className='mb-3'>
-                        <input
-                            className='shadow appearance-none border rounded w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg'
-                            value={props.values.age}
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            type="number"
-                            name='age'
-                            placeholder='Enter Your Age' />
-                        {props.touched.age && props.errors.age && <p className='text-lg text-red-600 text-left mb-2'>{props.errors.age}</p>}
-                    </div>
-                    <div className='mb-3 relative'>
-                        <input
-                            className='shadow appearance-none border rounded w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg'
-                            value={props.values.password}
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            // type={passwordShow ? "text" : "password"}
-                            type='password'
-                            name='password'
-                            placeholder='Enter Password' />
-                        {/* {
-                                    passwordShow ? (
-                                        <i className="fa-solid fa-eye absolute right-4 top-1 text-2xl cursor-pointer" onClick={() => setPasswordShow(pre => !pre)}></i>
-                                    ) : (
-                                        <i className="fa-solid fa-eye-slash absolute right-4 top-1 text-2xl cursor-pointer" onClick={() => setPasswordShow(pre => !pre)}></i>
-                                    )
-                                } */}
-                        {props.touched.password && props.errors.password && <p className='text-lg text-red-600 text-left mb-2'>{props.errors.password}</p>}
-                    </div>
-                    <div className='mb-3 relative'>
-                        <input
-                            className='shadow appearance-none border rounded w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg'
-                            value={props.values.confirmPassword}
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            // type={confirmPasswordShow ? "text" : "password"}
-                            type='password'
-                            name='confirmPassword'
-                            placeholder='Confirm Password' />
-                        {/* {
-                                    confirmPasswordShow ? (
-                                        <i className="fa-solid fa-eye absolute right-4 top-1 text-2xl cursor-pointer" onClick={() => setConfirmPasswordShow(pre => !pre)}></i>
-                                    ) : (
-                                        <i className="fa-solid fa-eye-slash absolute right-4 top-1 text-2xl cursor-pointer" onClick={() => setConfirmPasswordShow(pre => !pre)}></i>
-                                    )
-                                } */}
-                        {props.touched.confirmPassword && props.errors.confirmPassword && <p className='text-lg text-red-600 text-left mb-2'>{props.errors.confirmPassword}</p>}
-                    </div>
-                    <button type="submit" className='bg-blue-500 text-white my-3 rounded-lg'>Registration</button>
-
-                </form>
-            )}
-        </Formik>
+                    </form>
+                )}
+            </Formik>
+        </div >
     )
 }
 
-export default FormikForm
+export default FormikForm;

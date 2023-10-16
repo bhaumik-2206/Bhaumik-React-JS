@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import ConfirmationModal from './ConfirmationModal';
+import { toast } from 'react-toastify';
 
 const Table = () => {
     const [userData, setUserData] = useState([]);
@@ -15,7 +16,7 @@ const Table = () => {
             setUserData(result);
             setDeleteId(-1);
         } catch (error) {
-            console.log("ERROR: " + error)
+            toast.warning("Error Fetching The Data");
         }
     }
 
@@ -35,7 +36,7 @@ const Table = () => {
                     <tr className='border hover:bg-sky-100'>
                         <th>Sr. No.</th>
                         <th>Name</th>
-                        <th>Age</th>
+                        <th>Date Of Birth</th>
                         <th>Mobile Number</th>
                         <th>Password</th>
                         <th>Operation</th>
@@ -46,7 +47,7 @@ const Table = () => {
                         <tr className='border hover:bg-sky-50' key={index}>
                             <td>{index + 1}</td>
                             <td>{ele.name}</td>
-                            <td>{ele.age}</td>
+                            <td>{ele.dateOfBirth}</td>
                             <td>{ele.mobileNumber}</td>
                             <td>{ele.password}</td>
                             <td>

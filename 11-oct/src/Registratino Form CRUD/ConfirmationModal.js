@@ -1,8 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ConfirmationModal = ({ show, setShow, deleteId, getData }) => {
-    const navigate = useNavigate();
     const handleDelete = async () => {
         if (deleteId !== -1) {
             try {
@@ -12,9 +11,10 @@ const ConfirmationModal = ({ show, setShow, deleteId, getData }) => {
                 if (res.ok) {
                     setShow(false);
                     getData();
+                    toast.warning("Data Deleted Successfully");
                 }
             } catch (error) {
-                alert("Data Not Found")
+                toast.error("Error to Delete The Data");
             }
         }
     }
