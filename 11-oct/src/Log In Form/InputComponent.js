@@ -1,12 +1,17 @@
+import dayjs from 'dayjs';
 import React, { useState } from 'react'
 
 const InputComponent = ({ type, name, props, placeholder }) => {
     const [show, setShow] = useState(false);
+
+    // console.log(props.values);
+    // console.log(props.values[name.split(".")[0]][name.split(".")[1]])
+    let checkValue = name.includes(".") ? props.values[name.split(".")[0]][name.split(".")[1]] : props.values[name]
     return (
-        <div className='mb-3 relative'>
+        <div className='mb-3 relative form-group'>
             <input
-                className='shadow appearance-none border rounded w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg'
-                value={props.values[name]}
+                className='form-control'
+                value={type === "date" ? (checkValue ? dayjs(checkValue).format("YYYY-MM-DD") : "") : checkValue}
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
                 type={type === "password" ? (show ? 'text' : 'password') : type}

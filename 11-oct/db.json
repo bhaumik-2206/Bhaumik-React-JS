@@ -59,35 +59,156 @@
   ],
   "registerUser": [
     {
-      "id": 1,
       "fullName": "Bhaumik Panchal",
-      "email": "bhaumik@gmail.com",
+      "email": "bhaumikpanchal2206@gmail.com",
+      "dateOfBirth": "06-06-2005",
+      "mobileNumber": 8976543210,
+      "gender": "male",
+      "bloodGroup": "B+",
+      "id": 1,
       "password": "Bhaumik@22",
-      "confirmPassword": "Bhaumik@22"
+      "confirmPassword": "Bhaumik@22",
+      "currentAddress": {
+        "homeNumber": "B/24",
+        "society": "Sonal Nagar Society ",
+        "near": "Shivan Gas Agency",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "pincode": "382481"
+      },
+      "perManentAddress": {
+        "homeNumber": "B/24",
+        "society": "Sonal Nagar Society ",
+        "near": "Shivan Gas Agency",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "pincode": "382481"
+      },
+      "education": {
+        "branch": "Commerce",
+        "percentage": 71,
+        "degree": "BCA",
+        "college": "SOU",
+        "ending": "2023-10-04",
+        "joining": "2023-10-26"
+      }
     },
     {
-      "id": 2,
       "fullName": "Riddhi Prajapati",
       "email": "riddhi@gmail.com",
+      "dateOfBirth": "2005-09-17",
+      "mobileNumber": 789654120,
+      "gender": "female",
+      "bloodGroup": "B+",
+      "id": 2,
       "password": "Riddhi@22",
-      "confirmPassword": "Riddhi@22"
+      "confirmPassword": "Riddhi@22",
+      "currentAddress": {
+        "homeNumber": "B/24",
+        "society": "Sonal Nagar Society ",
+        "near": "Shivan Gas Agency",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "pincode": "382481"
+      },
+      "perManentAddress": {
+        "homeNumber": "B/24",
+        "society": "Sonal Nagar Society ",
+        "near": "Shivan Gas Agency",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "pincode": "382481"
+      },
+      "education": {
+        "branch": "Commerce",
+        "percentage": 81,
+        "degree": "BCA",
+        "college": "SOCCA",
+        "ending": "2023-10-17",
+        "joining": "2023-10-19"
+      }
     },
     {
       "fullName": "Raj Bundela",
       "email": "raj@gmail.com",
+      "dateOfBirth": "06-06-2005",
+      "mobileNumber": 9876543210,
+      "gender": "male",
+      "bloodGroup": "O",
       "password": "Raj@1709",
       "confirmPassword": "Raj@1709",
-      "id": 3
+      "id": 3,
+      "currentAddress": {
+        "homeNumber": "B/24",
+        "society": "Sonal Nagar Society ",
+        "near": "Shivan Gas Agency",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "pincode": "382481"
+      },
+      "perManentAddress": {
+        "homeNumber": "B/24",
+        "society": "Sonal Nagar Society ",
+        "near": "Shivan Gas Agency",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "pincode": "382481"
+      },
+      "education": {
+        "branch": "Commerce",
+        "percentage": 76,
+        "degree": "BCA",
+        "college": "Canada",
+        "ending": "2023-06-22",
+        "joining": "2023-10-26"
+      }
     },
     {
       "fullName": "Vivek Panchal",
+      "dateOfBirth": "06-06-2005",
       "email": "vivek@gmail.com",
       "password": "Vivek@2204",
       "confirmPassword": "Vivek@2204",
-      "id": 4
+      "id": 4,
+      "mobileNumber": 984651320,
+      "gender": "male",
+      "education": {
+        "branch": "Commerce",
+        "percentage": 71,
+        "degree": "B.com",
+        "college": "C.U. Shah ",
+        "ending": "2023-10-17",
+        "joining": "2023-10-27"
+      },
+      "bloodGroup": "B+",
+      "currentAddress": {
+        "homeNumber": "B/24",
+        "society": "Sonal Nagar Society ",
+        "near": "Shivan Gas Agency",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "pincode": "382481"
+      },
+      "perManentAddress": {
+        "homeNumber": "B/24",
+        "society": "Sonal Nagar Society ",
+        "near": "Shivan Gas Agency",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "pincode": "382481"
+      }
     },
     {
       "fullName": "Pinki Panchal",
+      "dateOfBirth": "06-06-2005",
       "email": "pinki@gmail.com",
       "password": "Pinki@0208",
       "confirmPassword": "Pinki@0208",
@@ -95,17 +216,40 @@
     },
     {
       "fullName": "Test ",
+      "dateOfBirth": "2005-06-22",
       "email": "test@gmail.com",
       "password": "Test@222",
       "confirmPassword": "Test@222",
-      "id": 6
+      "id": 6,
+      "mobileNumber": 98546210,
+      "gender": "male",
+      "selectedOption": "2",
+      "bloodGroup": "B+",
+      "education": {
+        "branch": "Commerce",
+        "percentage": 71,
+        "degree": "BCA",
+        "college": "SOU",
+        "ending": "2023-10-16",
+        "joining": "2023-10-26"
+      },
+      "branch": "BCA"
     },
     {
       "fullName": "Hello",
+      "dateOfBirth": "06-06-2005",
       "email": "hello@gmail.com",
       "password": "Hello@2222",
       "confirmPassword": "Hello@2222",
       "id": 7
+    },
+    {
+      "fullName": "Krunal Panchal",
+      "email": "krunal@gmail.com",
+      "password": "Krunal@22",
+      "confirmPassword": "Krunal@22",
+      "dateOfBirth": "2005-06-22",
+      "id": 8
     }
   ],
   "userData": [

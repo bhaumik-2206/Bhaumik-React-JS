@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as Yup from "yup";
 import { Formik } from 'formik';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -7,6 +7,7 @@ import dayjs from 'dayjs';
 import InputComponent from './InputComponent';
 
 const FormikForm = ({ currentData }) => {
+    const [submitForm, setSubmitForm] = useState(false);
     const { editId } = useParams();
     const navigate = useNavigate();
 
@@ -16,13 +17,11 @@ const FormikForm = ({ currentData }) => {
             mobileNumber: Yup.string().trim().min(10, "Mobile Number Have Only 10 Character").max(10, "Mobile Number Have Only 10 Character").required("Required"),
             dateOfBirth: Yup.date().required('Required').test('is-at-least-18', 'You must be at least 18 years old',
                 (value) => dayjs().diff(dayjs(value), 'year') >= 18 ? true : false),
-                password: Yup.string().trim().matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*+=!])(?!.*\s).{8,}$/, "Not A Strong Password").required("Required"),
+            password: Yup.string().trim().matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*+=!])(?!.*\s).{8,}$/, "Not A Strong Password").required("Required"),
             confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Password Not Match').required("Required"),
         })
 
     const handleSubmit = async (values, action) => {
-        // console.log(action)
-        // console.log(values)
         try {
             let url = editId ? `http://localhost:3500/registrationUser/${editId}` : `http://localhost:3500/registrationUser`
             let res = await fetch(url, {
@@ -35,6 +34,7 @@ const FormikForm = ({ currentData }) => {
             if (res.ok) {
                 navigate("/");
                 toast.success(`${editId ? "Data Updated Successfully" : "Data Added Successfully"}`);
+                setSubmitForm(false);
             }
         } catch (error) {
             toast.warning(`${editId ? "Error In Updating Data" : "Error In Adding User"}`);
@@ -45,7 +45,12 @@ const FormikForm = ({ currentData }) => {
         <div className='w-3/5 bg-gray-0 m-auto text-center rounded-2xl p-10 fixed top-1/2 left-1/2 -translate-y-2/4 -translate-x-2/4 border-2 bg-gray-300'>
             <Formik
                 initialValues={currentData}
-                onSubmit={handleSubmit}
+                onSubmit={(values) => {
+                    if (!submitForm) {
+                        handleSubmit(values)
+                        setSubmitForm(true);
+                    }
+                }}
                 validationSchema={validate}
                 enableReinitialize>
                 {props => (

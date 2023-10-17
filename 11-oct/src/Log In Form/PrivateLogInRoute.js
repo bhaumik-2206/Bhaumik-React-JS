@@ -2,22 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router';
 
 const LogInPrivateRoute = ({ children }) => {
-    const [email, setEmail] = useState("")
+    const [id, setId] = useState("")
     const navigate = useNavigate();
 
     useEffect(() => {
-        setEmail(()=>{
-            let email = localStorage.getItem("email");
-            if(email){
+        setId(()=>{
+            let id = localStorage.getItem("id");
+            if(id){
                 navigate("/user");
             }else{
-                return email;
+                return id;
             }
         })
     })
 
     return (
-        !email && children
+        !id && children
     )
 }
 

@@ -2,34 +2,26 @@ import { Formik } from 'formik'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
-import ConfirmationModal from './ConfModal';
 import InputComponent from './InputComponent';
 
 const LogIn = () => {
-    const [show, setShow] = useState(false);
     const [passwordCheck, setPasswordCheck] = useState(false);
     const navigate = useNavigate();
     const validate = Yup.object({
         email: Yup.string().trim().email("Invalid Email").required("Required"),
-        password: Yup.string().trim().matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*+=!])(?!.*\s).{8,}$/, "Not A Strong Password").required("Required"),
     });
 
     const handleSubmit = async (values, action) => {
         try {
-            // let res = await fetch(`http://localhost:3500/registerUser?email=${values.email}&password=${values.password}`)
-            let res = await fetch(`http://localhost:3500/registerUser?email=${values.email}`)
+            let res = await fetch(`http://localhost:3500/registerUser?email=${values.email}&password=${values.password}`)
+            // let res = await fetch(`http://localhost:3500/registerUser?email=${values.email}`)
             if (res.ok) {
                 let result = await res.json();
                 if (result.length > 0) {
-                    if (result[0].password === values.password) {
-                        // console.log("Log In Successfully");
-                        localStorage.setItem("email", values.email);
-                        navigate("/user");
-                    } else {
-                        setPasswordCheck(true);
-                    }
+                    localStorage.setItem("id", result[0].id);
+                    navigate("/user");
                 } else {
-                    setShow(true);
+                    setPasswordCheck(true);
                 }
             }
         } catch (error) {
@@ -49,14 +41,13 @@ const LogIn = () => {
                         <form onSubmit={props.handleSubmit}>
                             <InputComponent props={props} type="email" name="email" placeholder="Enter Email" />
                             <InputComponent props={props} type="password" name="password" placeholder="Enter Password" />
-                            {passwordCheck ? <p className='ms-2 p-1 text-left text-red-600 text-lg'>Incorrect Password</p> : props.touched.password && props.errors.password && <p className='text-lg text-red-600 text-left mb-2'>{props.errors.password}</p>}
-                            <button className='bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-7 rounded-full focus:outline-none focus:shadow-outline text-lg' type="submit">Log In</button>
+                            <button className='bg-blue-500 text-white my-3 rounded-lg px-4 py-2 text-2xl' type="submit">Log In</button>
+                            {passwordCheck ? <p className='ms-2 p-1 text-left text-red-600 text-lg'>Sorry Your password is incorrect , Please double check the password</p> : (false)}
                             <p className='mt-2'>New User <Link className='hover:text-red-700 underline' to="/register" href="">Register</Link></p>
                         </form>
                     </div>
                 )}
             </Formik>
-            <ConfirmationModal show={show} setShow={setShow} />
         </>
     )
 }

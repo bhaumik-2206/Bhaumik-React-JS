@@ -6,6 +6,9 @@ import UserPage from './UserPage';
 import PrivateRoute from './PrivateRoute';
 import PageNotFound from './PageNotFound';
 import LogInPrivateRoute from './PrivateLogInRoute';
+import Profile from './Profile.js/Profile';
+import UserHomePage from './Home/UserHomePage';
+import SearchUser from './SearchUser/SearchUser';
 
 const MainLogInPage = () => {
     const navigate = useNavigate();
@@ -27,11 +30,22 @@ const MainLogInPage = () => {
                         <Registration />
                     </LogInPrivateRoute>
                 } />
-                <Route path='user' element={
+                <Route path="user" element={
                     <PrivateRoute>
                         <UserPage />
                     </PrivateRoute>
-                } />
+                } >
+                    <Route index element={<UserHomePage />} />
+                    <Route path="home" element={<UserHomePage />} />
+                    <Route path="searchUser" element={<SearchUser />} />
+                    {/* <Route exat path="" element={
+                        <PrivateRoute>
+                            <UserPage />
+                        </PrivateRoute>
+                    } />
+                    <Route /> */}
+                </Route>
+                <Route exat path="profile" element={<Profile />} />
                 <Route path='*' element={<PageNotFound />} />
             </Routes>
         </div>

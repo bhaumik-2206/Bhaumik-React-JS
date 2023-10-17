@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 const PrivateRoute = ({ children }) => {
-    const [email, setEmail] = useState("");
+    const [id, setId] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
-        setEmail(() => {
-            let email = localStorage.getItem("email");
-            if (email) {
-                return email;
+        setId(() => {
+            let id = localStorage.getItem("id");
+            if (id) {
+                return id;
             } else {
                 navigate("/logIn")
             }
@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }) => {
     }, [])
 
     return (
-        email && children
+        id && children
     )
 }
 export default PrivateRoute;

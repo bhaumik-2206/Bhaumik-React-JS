@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 
 const ConfirmationModal = ({ show, setShow, deleteId, getData }) => {
+    const [deleteUser, setDeleteUser] = useState(false);
     const handleDelete = async () => {
         if (deleteId !== -1) {
             try {
@@ -12,6 +13,7 @@ const ConfirmationModal = ({ show, setShow, deleteId, getData }) => {
                     setShow(false);
                     getData();
                     toast.warning("Data Deleted Successfully");
+                    setDeleteUser(false);
                 }
             } catch (error) {
                 toast.error("Error to Delete The Data");
@@ -23,9 +25,16 @@ const ConfirmationModal = ({ show, setShow, deleteId, getData }) => {
             <h2 className="text-2xl mb-5">Are you sure you want to delete the data!!!</h2>
             <div>
                 <button className='bg-blue-500 text-white my-3 rounded-lg' onClick={() => setShow(false)}>NO</button>
-                <button className='bg-blue-500 text-white my-3 rounded-lg' onClick={handleDelete}>DELETE</button>
+                <button className='bg-blue-500 text-white my-3 rounded-lg'
+                    onClick={() => {
+                        if (!deleteUser) {
+                            handleDelete();
+                            setDeleteUser(true);
+                        }
+                    }
+                    }>DELETE</button>
             </div>
-        </div>
+        </div >
     )
 }
 

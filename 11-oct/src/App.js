@@ -9,21 +9,21 @@ import 'react-toastify/dist/ReactToastify.css';
 // export default App;
 
 
-// import React from 'react'
-// import MainPage from './Registratino Form CRUD/MainPage';
-// const App = () => {
-//   return (
-//     <MainPage />
-//   )
-// }
-// export default App
-
-
 import React from 'react'
-import MainLogInPage from './Log In Form/MainLogInPage';
+import MainPage from './Registratino Form CRUD/MainPage';
 const App = () => {
   return (
-    <MainLogInPage />
+    <MainPage />
   )
 }
-export default App;
+export default App
+
+
+// import React from 'react'
+// import MainLogInPage from './Log In Form/MainLogInPage';
+// const App = () => {
+//   return (
+//     <MainLogInPage />
+//   )
+// }
+// export default App;
