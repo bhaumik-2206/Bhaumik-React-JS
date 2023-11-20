@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "fname": "Bhaumik",
+      "lname": "panchal",
+      "age": "18",
+      "id": 1
+    },
+    {
+      "fname": "Sachin",
+      "lname": "Israni",
+      "age": "190",
+      "id": 2
+    },
+    {
+      "fname": "Pujan",
+      "lname": "Jani",
+      "age": "490",
+      "id": 3
+    },
+    {
+      "fname": "Bhavik",
+      "lname": "Panchal",
+      "age": "5",
+      "id": 4
+    }
+  ]
+}

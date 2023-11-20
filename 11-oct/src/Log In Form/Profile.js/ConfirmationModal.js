@@ -8,7 +8,7 @@ const ConfirmationModal = ({ show, setShow }) => {
     useEffect(() => {
         let id = localStorage.getItem("id");
         setId(id);
-    }, [])
+    }, []);
 
     const handleLogOutPage = async () => {
         let res = await fetch(`http://localhost:3500/registerUser?id=${id}`)
