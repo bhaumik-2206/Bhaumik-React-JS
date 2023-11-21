@@ -31,9 +31,17 @@
 // })
 
 
-// SHOPPING CART
+// QUIZ APPLICATION
+// import { configureStore } from "@reduxjs/toolkit"
+// import quizSlice from "../feature/quiz/quizSlice"
+// export const store = configureStore({
+//     reducer: quizSlice
+// })
+
+
+// WORKING WITH INPUT
 import { configureStore } from "@reduxjs/toolkit"
-import quizSlice from "../feature/quiz/quizSlice"
+import inputSlice from "../feature/input/inputSlice"
 export const store = configureStore({
-    reducer: quizSlice
+    reducer: { inputSlice }
 })

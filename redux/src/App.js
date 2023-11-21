@@ -44,6 +44,7 @@ import Products from './components/shopping/Products';
 import Questions from './components/quiz/Questions';
 import Result from './components/quiz/Result';
 import TimerQuestions from './components/quiz/TimerQuestions';
+import Input from './components/input/Input';
 
 const App = () => {
   const [show, setShow] = useState(false)
@@ -52,9 +53,14 @@ const App = () => {
       {/* <Header />
       <Products /> */}
 
+      {/* Quiz Application */}
       {/* <Questions setShow={setShow} /> */}
-      <TimerQuestions />
       {/* <Result show={show} setShow={setShow} /> */}
+      
+      {/* Quiz Application With Timer */}
+      {/* <TimerQuestions /> */}
+
+      <Input />
     </div>
   )
 }
