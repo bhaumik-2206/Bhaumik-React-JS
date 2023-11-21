@@ -38,31 +38,82 @@
 
 
 
-import React, { useState } from 'react'
-import Header from './components/shopping/Header'
-import Products from './components/shopping/Products';
-import Questions from './components/quiz/Questions';
-import Result from './components/quiz/Result';
-import TimerQuestions from './components/quiz/TimerQuestions';
-import Input from './components/input/Input';
+// import React, { useState } from 'react'
+// import 'react-toastify/dist/ReactToastify.css';
+// import Header from './components/shopping/Header'
+// import Products from './components/shopping/Products';
+// import Questions from './components/quiz/Questions';
+// import Result from './components/quiz/Result';
+// import TimerQuestions from './components/quiz/TimerQuestions';
+// import Input from './components/input/Input';
+// import { ToastContainer } from 'react-toastify';
+// import SelectQuizCount from './components/quiz/SelectQuizCount';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import ShowAnswer from './components/quiz/ShowAnswer';
+
+// const App = () => {
+//   const [showQuestions, setShowQuestions] = useState(false);
+//   return (
+//     <div>
+//       <ToastContainer
+//         autoClose={2000}
+//         pauseOnHover={false}
+//         theme='dark'
+//       />
+//       {/* <Header />
+//       <Products /> */}
+
+//       {/* Quiz Application */}
+//       {/* <Questions setShow={setShow} />
+//       <Result show={show} setShow={setShow} /> */}
+
+//       {/* <Input /> */}
+//     </div>
+//   )
+// }
+
+// export default App;
+
+
+
+
+// import React from 'react'
+// import TimerQuestions from './components/quiz/TimerQuestions';
+// import { ToastContainer } from 'react-toastify';
+// import SelectQuizCount from './components/quiz/SelectQuizCount';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import ShowAnswer from './components/quiz/ShowAnswer';
+// import 'react-toastify/dist/ReactToastify.css';
+// const App = () => {
+//   return (
+//     <BrowserRouter>
+//       <ToastContainer
+//         autoClose={2000}
+//         pauseOnHover={false}
+//         theme='dark'
+//       />
+//       <Routes>
+//         <Route path="/" element={<SelectQuizCount />} />
+//         <Route path="/quiz" element={<TimerQuestions />} />
+//         <Route path="/result" element={<ShowAnswer />} />
+//       </Routes>
+//     </BrowserRouter>
+//   )
+// }
+// export default App
+
+
+import React from 'react'
+import TicTacToe from './components/ticTacToe/TicTacToe'
+import WinnerModal from './components/ticTacToe/WinnerModal'
 
 const App = () => {
-  const [show, setShow] = useState(false)
   return (
     <div>
-      {/* <Header />
-      <Products /> */}
-
-      {/* Quiz Application */}
-      {/* <Questions setShow={setShow} /> */}
-      {/* <Result show={show} setShow={setShow} /> */}
-      
-      {/* Quiz Application With Timer */}
-      {/* <TimerQuestions /> */}
-
-      <Input />
+      <TicTacToe />
+      <WinnerModal />
     </div>
   )
 }
 
-export default App;
+export default App

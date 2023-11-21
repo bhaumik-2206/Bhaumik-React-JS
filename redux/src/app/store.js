@@ -31,7 +31,7 @@
 // })
 
 
-// QUIZ APPLICATION
+// // QUIZ APPLICATION
 // import { configureStore } from "@reduxjs/toolkit"
 // import quizSlice from "../feature/quiz/quizSlice"
 // export const store = configureStore({
@@ -39,9 +39,17 @@
 // })
 
 
-// WORKING WITH INPUT
+// // WORKING WITH INPUT
+// import { configureStore } from "@reduxjs/toolkit"
+// import inputSlice from "../feature/input/inputSlice"
+// export const store = configureStore({
+//     reducer: { inputSlice }
+// })
+
+
+// TIC TAC TOE GAME
 import { configureStore } from "@reduxjs/toolkit"
-import inputSlice from "../feature/input/inputSlice"
+import ticTacToe from "../feature/ticTacToe/ticTacToe"
 export const store = configureStore({
-    reducer: { inputSlice }
+    reducer: ticTacToe
 })
