@@ -70,7 +70,7 @@ const Home = () => {
         return adjustedHours * 60 + parseInt(minutes);
     }
 
-    // Find the medicine time for dosage
+    // Find the medicine time for dosage (morning,afternoon,evening,night)
     const findTime = (medicineDate) => {
         console.log(medicineDate)
         let [time, period] = medicineDate.split(" ");
@@ -133,7 +133,9 @@ const Home = () => {
                                 </div>
                             ))}
                         </div>
-                        {Object.values(image[findTime(e)])[0]}
+                        <div>
+                            {Object.values(image[findTime(e)])[0]}
+                        </div>
                         {/* {e === "07:55 am" ? image[0].morning : image[3].night} */}
                         <div className=''>
                             <p className='text-lg me-7'>{e}</p>
