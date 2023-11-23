@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="logo.webp" type="image/-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="image">
+                <a href="insta.html">
+                    <img src="instagramm.png" alt="">
+                </a>
+            </div>
+            <div class="items">
+                <ul>
+                    <li class="bold"><a href="#"><i class="fa fa-home fa-lg" aria-hidden="true"></i>Home</a></li>
+                    <li><a href="#"><i class="fa fa-search fa-lg" aria-hidden="true"></i>Search</a></li>
+                    <li><a href="#"><i class="fa fa-compass fa-lg" aria-hidden="true"></i>Explore</a></li>
+                    <li><a href="#"><i class="fa fa-film fa-lg" aria-hidden="true"></i>Reels</a></li>
+                    <li><a href="#"><i class="fa fa-commenting fa-lg" aria-hidden="true"></i>Messages</a></li>
+                    <li><a href="#"><i class="fa fa-heart fa-lg" aria-hidden="true"></i>Notification</a></li>
+                    <li><a href="#"><i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>Create</a></li>
+                    <li><a href="#"><i class="fa fa-user fa-lg" aria-hidden="true"></i>Profile</a></li>
+                    <li class="pad"><a href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i>More</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="mainn">
+            <div class="story">
+                <div class="one"><img src="logo.webp" alt="">USER</div>
+                <div class="one"><img src="user.png" alt="">USER</div>
+                <div class="one"><img src="logo.webp" alt="">USER</div>
+                <div class="one"><img src="five.jpg" alt="">USER</div>
+                <div class="one"><img src="logo.webp" alt="">USER</div>
+                <div class="one"><img src="user.png" alt="">USER</div>
+                <div class="one"><img src="logo.webp" alt="">USER</div>
+                <div class="one"><img src="five.jpg" alt="">USER</div>
+            </div>
+            <i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true"></i>
+        </div>
+        <div class="pros">
+            <div class="promain">
+                <div class="pro"><img src="five.jpg" alt=""></div>
+                <div class="name">
+                    <div class="">sachin._.israni</div>
+                    <div class="sa">Sachin Israni</div>
+                </div>
+                <div class="switch">Switch</div>
+            </div>
+            <div class="suggest">
+
+                <div class="foryou">
+                    <div class="sug">Suggested for you</div>
+                    <div class="see">See All</div>
+                </div>
+
+                <div class="prom">
+                    <div class="new"><img src="five.jpg" alt=""></div>
+                    <div class="new1">
+                        <div class="newinn">Naman Raheja</div>
+                        <div class="newin">Suggested For You</div>
+                    </div>
+                    <div class="foll">Switch</div>
+                </div>
+
+                <div class="prom">
+                    <div class="new"><img src="five.jpg" alt=""></div>
+                    <div class="new1">
+                        <div class="newinn">Bhaumik Panchal</div>
+                        <div class="newin">Suggested For You</div>
+                    </div>
+                    <div class="foll">Switch</div>
+                </div>
+
+                <div class="prom">
+                    <div class="new"><img src="five.jpg" alt=""></div>
+                    <div class="new1">
+                        <div class="newinn">Vansh Panchal</div>
+                        <div class="newin">Suggested For You</div>
+                    </div>
+                    <div class="foll">Switch</div>
+                </div>
+
+                <div class="prom">
+                    <div class="new"><img src="five.jpg" alt=""></div>
+                    <div class="new1">
+                        <div class="newinn">Pujan</div>
+                        <div class="newin">Suggested For You</div>
+                    </div>
+                    <div class="foll">Switch</div>
+                </div>
+
+                <div class="prom">
+                    <div class="new"><img src="five.jpg" alt=""></div>
+                    <div class="new1">
+                        <div class="newinn">Prakhar</div>
+                        <div class="newin">Suggested For You</div>
+                    </div>
+                    <div class="foll">Switch</div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // -------- For hiding the code from any user
+
+            document.onkeydown = function (e) {
+                if (e.keyCode == 123) {
+                    return false;
+                }
+
+                if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
+                    return false;
+                }
+                if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
+                    return false;
+                }
+                // console.log(e.keyCode);
+            };
+
+            document.onmousedown = function (e) {
+                if (e.which == 3) {
+                    alert("Right mouse button clicked is not allowed");
+                    console.log(e.value);
+                }
+            };
+        </script>
+</body>
+
+</html>

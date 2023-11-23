@@ -1,5 +1,6 @@
+import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
 // import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import './App.css';
 // import AddUser from './components/crud/AddUser';
 // import Table from './components/crud/Table';
 // import Math from './components/math/Math';
@@ -83,7 +84,6 @@
 // import SelectQuizCount from './components/quiz/SelectQuizCount';
 // import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import ShowAnswer from './components/quiz/ShowAnswer';
-// import 'react-toastify/dist/ReactToastify.css';
 // const App = () => {
 //   return (
 //     <BrowserRouter>
@@ -103,17 +103,86 @@
 // export default App
 
 
-import React from 'react'
-import TicTacToe from './components/ticTacToe/TicTacToe'
-import WinnerModal from './components/ticTacToe/WinnerModal'
+// // TIC TAC TOE GAME
+// import React from 'react'
+// import TicTacToe from './components/ticTacToe/TicTacToe'
+// import WinnerModal from './components/ticTacToe/WinnerModal'
+// const App = () => {
+//   return (
+//     <div>
+//       <TicTacToe />
+//       <WinnerModal />
+//     </div>
+//   )
+// }
+// export default App
 
+
+// // E-COMMERCE WEBSITE
+// import React from 'react'
+// import Product from './components/e_commerce/Product'
+// import { ToastContainer } from 'react-toastify';
+// const App = () => {
+//   return (
+//     <>
+//       <ToastContainer
+//         autoClose={2000}
+//         pauseOnHover={false}
+//         theme='dark'
+//         position='top-left'
+//       />
+//       <Product />
+//     </>
+//   )
+// }
+// export default App
+
+// // SOCIAL MEDIA ADD POST 
+// import React from 'react'
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import Home from './components/social_media/Home';
+// import { ToastContainer } from 'react-toastify';
+// const App = () => {
+//   return (
+//     <BrowserRouter>
+//       <ToastContainer
+//         autoClose={2000}
+//         pauseOnHover={false}
+//         theme='dark'
+//         position='top-right'
+//       />
+//       <Routes>
+//         <Route path='/' element={<Home />} />
+//       </Routes>
+//     </BrowserRouter>
+//   )
+// }
+// export default App
+
+
+// // CHAT APPLICATION
+// import React from 'react'
+// import Home from './components/chatting_app/Home';
+// const App = () => {
+//   return (
+//     <Home />
+//   )
+// }
+// export default App;
+
+
+import React from 'react'
+import SnakeLadder from './components/snake_ladder/SnakeLadder';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SelectPlayers from './components/snake_ladder/SelectPlayers';
 const App = () => {
   return (
-    <div>
-      <TicTacToe />
-      <WinnerModal />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<SelectPlayers />} />
+        <Route path='/start-game/:player' element={<SnakeLadder />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
-
-export default App
+export default App;

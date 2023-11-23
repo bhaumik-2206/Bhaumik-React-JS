@@ -47,9 +47,39 @@
 // })
 
 
-// TIC TAC TOE GAME
-import { configureStore } from "@reduxjs/toolkit"
-import ticTacToe from "../feature/ticTacToe/ticTacToe"
-export const store = configureStore({
-    reducer: ticTacToe
-})
+// // TIC TAC TOE GAME
+// import { configureStore } from "@reduxjs/toolkit"
+// import ticTacToe from "../feature/ticTacToe/ticTacToe"
+// export const store = configureStore({
+//     reducer: ticTacToe
+// })
+
+
+// // E_COMMERCE WEBSITE
+// import { configureStore } from "@reduxjs/toolkit"
+// import e_commerce from "../feature/shopping/e_commerce"
+// export const store = configureStore({
+//     reducer: {
+//         products : e_commerce
+//     }
+// })
+
+
+// // SOCIAL MEDIA
+// import { configureStore } from "@reduxjs/toolkit"
+// import social_media from "../feature/social_media/social_media"
+// export const store = configureStore({
+//     reducer: {
+//         post : social_media
+//     }
+// })
+
+
+// // CHAT APPLICATION
+// import { configureStore } from "@reduxjs/toolkit"
+// import chatting_app from "../feature/chatting_app/chatting_app"
+// export const store = configureStore({
+//     reducer: {
+//         chat: chatting_app
+//     }
+// })

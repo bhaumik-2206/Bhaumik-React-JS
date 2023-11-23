@@ -21,7 +21,7 @@ const TicTacToe = () => {
     }
 
     return (
-        <div className={`flex flex-col items-center bg-green-200`}>
+        <div className={`flex flex-col items-center bg-sky-400 py-4`}>
             <div>
                 <div className="flex">
                     <div onClick={() => handleChange(0)} className='cursor-pointer flex justify-center items-center bg-black text-center text-4xl w-16 h-16 m-2 text-white'>{value[0]}</div>
