@@ -139,7 +139,7 @@ let hundred = [
 ];
 
 const SnakeLadder = () => {
-    const { player } = useParams();
+    let { player } = useParams();
     const [show, setShow] = useState(false);
     const [winner, setWinner] = useState("")
     const [turn, setTurn] = useState(false);
@@ -152,19 +152,15 @@ const SnakeLadder = () => {
     useEffect(() => {
         setTotalPlayers([]);
         if (player) {
+            player = player > 4 ? 4 : player;
             for (let i = 1; i <= player; i++) {
                 let playerName = "player " + i
                 setTotalPlayers(pre => [...pre, playerName]);
                 setRandomNumber(pre => ({ ...pre, [playerName]: "" }))
                 setPoints(pre => ({ ...pre, [playerName]: 1 }))
             }
-        } else {
-
         }
     }, [])
-
-
-
 
     const addPoints = (user) => {
         let random = Math.ceil(Math.random() * 6);
@@ -179,25 +175,6 @@ const SnakeLadder = () => {
         setPoints(pre => ({ ...pre, [playerName]: value }))
         setTurn({ [playerName]: true });
         console.log(randomNumber);
-        // setPoints((pre) => ({ ...pre, player1: value > 100 ? 100 : value }));
-
-        // if (user === 1) {
-        //     let value = points.player1 + random;
-        //     if (value >= 100) {
-        //         setShow(true);
-        //         setWinner("Winner is user 1");
-        //     }
-        //     setRandomNumberU1(random);
-        //     setPoints((pre) => ({ ...pre, player1: value > 100 ? 100 : value }));
-        // } else if (user === 2) {
-        //     let value = points.player2 + random;
-        //     if (value >= 100) {
-        //         setShow(true);
-        //         setWinner("Winner is user 2");
-        //     }
-        //     setRandomNumberU2(random);
-        //     setPoints((pre) => ({ ...pre, player2: value > 100 ? 100 : value }));
-        // }
     };
     console.log(turn)
 
@@ -220,7 +197,8 @@ const SnakeLadder = () => {
                                         <div key={i} className={`${colourName[i]} absolute top-${i * 3} left-4 rounded-full`}>
                                             <i className="fa-solid text-xl fa-chess-pawn"></i>
                                         </div>
-                                    ))
+                                    )
+                                )
                                 )}
                             </div>
                         ))}
